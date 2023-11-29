@@ -117,7 +117,7 @@ const followUnFollowUser = async (req, res) => {
         res.status(500).json({ error: error.message })
         console.log("Error in followUnFollowUser", error.message);
         
-    }
+    } 
 }
     
 module.exports = { signUpUser, loginUser, logoutUser, followUnFollowUser }
