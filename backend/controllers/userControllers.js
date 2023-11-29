@@ -30,7 +30,10 @@ const signUpUser = async(req, res) => {
             _id: newUser._id,
             name: newUser.name,
             email: newUser.email,
-            username: newUser.username
+            username: newUser.username,
+            bio: user.bio,
+            
+
 
         })
     }
