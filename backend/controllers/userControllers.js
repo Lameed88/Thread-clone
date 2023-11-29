@@ -55,7 +55,9 @@ const loginUser = async (req, res) => {
         }
 
         generateTokenAndSetCookie(user._id, res)
-        res
+        res.status(200).json({
+            
+        })
     } catch (error) {
         
     }
