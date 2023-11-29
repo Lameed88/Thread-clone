@@ -101,7 +101,7 @@ const followUnFollowUser = async (req, res) => {
 
         //UNFOLLOw user
     }
- 
+  
     try {
         
     } catch (error) {
