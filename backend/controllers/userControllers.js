@@ -109,7 +109,7 @@ const followUnFollowUser = async (req, res) => {
         await User.findByIdAndUpdate(req.user._id, {$pull:{followering: id}})
         res.status(200).json({message: "User Unfollowed Successfully"})
 
-    }
+    } 
     
     try {
         
