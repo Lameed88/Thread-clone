@@ -1,4 +1,5 @@
-import jwt from 'jsonwebtoken'
+const jwt = require ("jsonwebtoken")
+const User = require ('../models/userModel')
 
 const protectRoute = async (req, res, next) => {
     try {
@@ -8,7 +9,7 @@ const protectRoute = async (req, res, next) => {
         
         const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
-        const user = await User.findById(decode.userId).select("-password")
+        const user = await User.findById(decoded.userId).select("-password")
 
         req.user = user
 
@@ -19,4 +20,4 @@ const protectRoute = async (req, res, next) => {
         console.log('Error while signing up user: ', error.message);
     }
 } 
-export default protectRoute
+module.exports= protectRoute

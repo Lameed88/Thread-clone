@@ -88,7 +88,7 @@ const logoutUser =(req, res) => {
 const followUnFollowUser = async (req, res) => {
     const { id } = req.params
     const userToModify = await User.findById(id)
-    const currentUser = await User.findById(id)(req.user_id)
+    const currentUser = await User.findById(req.user_id)
 
     if (id === req.user._id.toString())
     return res.status(400).json({error: "You can not Follow?Unfollow Yourself"})
@@ -114,6 +114,8 @@ const followUnFollowUser = async (req, res) => {
     try {
         
     } catch (error) {
+        res.status(500).json({ error: error.message })
+        console.log("Error in followUnFollowUser", error.message);
         
     }
 }
