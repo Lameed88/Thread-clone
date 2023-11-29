@@ -55,6 +55,7 @@ const loginUser = async (req, res) => {
         }
 
         generateTokenAndSetCookie(user._id, res)
+        res
     } catch (error) {
         
     }
