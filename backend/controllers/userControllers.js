@@ -4,31 +4,34 @@ const generateTokenAndSetCookie = require("../utils/helper/generateTokenAndSetCo
 const mongoose = require ('mongoose')
 
 
-const getUserProfile = async (req, res) =>{
+const getUserProfile = async (req, res) => {
+    // We fetch the user profile either by user name or user id
+    // query is either username or userId
 
-    //we fetch the user profile either by username or userId
-    // QUery is either username or userId
-    const { query } = req.params
-
-
-
+    const {query} = req.params;
     try {
+        let user;
 
-        let user
-
-        //Query is user ID
-        if (mongoose.Types.ObjectId.isValid(query)) {
-            user = await User.findOne({_id: query}).select("-password").select("-updatedAt")
-        }else{
-            //Query is username
-            user = await User.findOne({username: query}).select("-password").select("-updatedAt")
-        }
-    } catch (error) {
-        
+        //  query is userId
+    if(mongoose.Types.ObjectId.isValid(query)) {
+        user = await User.findOne({_id: query}).select("-updatedAt");
+    } else{
+        //query is username
+        user = await User.findOne({username:query}).select("-password").select("-updatedAt");
     }
 
+    if(!user) 
+        return res.status(400).json({error: "User not found"})
+
+      res.status(200).json(user)
+    } catch(err) { 
+    res.status(500).json({error:err.message});
+    console.log("Error in getUserProfile: ", err.mesage);
 }
 
+    
+
+}
 const signUpUser = async (req, res) => {
   try {
     const { name, email, username, password } = req.body;
