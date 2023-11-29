@@ -48,11 +48,13 @@ const loginUser = async (req, res) => {
         const isPasswordCorrect = await bcrypt.compare(password, user?.password || '')
 
         if(!user || !isPasswordCorrect) return res.status(400).json({error: 'Invalid username or password'})
-        
+
         if (user.isFrozen){
             user.isFrozen = false
             await user.save()
         }
+
+        generateTokenAndSetCookie(user._id, res)
     } catch (error) {
         
     }
