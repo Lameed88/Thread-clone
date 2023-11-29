@@ -97,7 +97,10 @@ const followUnFollowUser = async (req, res) => {
     return res.status(400).json({error: "User not found"})
 
     const isFollowing = currentUser.following.includes(id)
-    if (!isFollowing)
+    if (!isFollowing) {
+
+        //UNFOLLOw user
+    }
 
     try {
         
