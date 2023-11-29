@@ -87,7 +87,10 @@ const logoutUser =(req, res) => {
 
 const followUnFollowUser = async (req, res) => {
     const { id } = req.params
-    const userToModify = awa
+    const userToModify = await User.findById(id)
+    const currentUser = await User.findById(id)(req.user_id)
+
+    if (id ===)
 
     try {
         
