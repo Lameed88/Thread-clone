@@ -83,6 +83,6 @@ const logoutUser =(req, res) => {
         console.log("Error in LogoutUser", error.message);
     
     }
-}
+} 
     
 module.exports = { signUpUser, loginUser, logoutUser }
