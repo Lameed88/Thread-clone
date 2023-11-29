@@ -118,6 +118,6 @@ const followUnFollowUser = async (req, res) => {
         console.log("Error in followUnFollowUser", error.message);
         
     } 
-}
+} 
     
 module.exports = { signUpUser, loginUser, logoutUser, followUnFollowUser }
