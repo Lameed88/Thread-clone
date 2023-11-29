@@ -7,6 +7,6 @@ const router = express.Router()
 router.post("/signup", signUpUser)
 router.post("/login", loginUser)
 router.post("/logout", logoutUser)
-router.post("/follow/:id", protectRoute,logoutUser)
+router.post("/follow/:id", protectRoute, follow)
 
 module.exports = router
