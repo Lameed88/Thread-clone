@@ -2,7 +2,7 @@ const express = require ('express')
 const { followUnFollowUser, signUpUser, loginUser, logoutUser,getUserProfile  } = require ('../controllers/userControllers')
 const protectRoute = require ("../middleware/protectRoute")
 
- 
+  
          
 const router = express.Router()
         
