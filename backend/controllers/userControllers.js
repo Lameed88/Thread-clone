@@ -24,7 +24,8 @@ const signUpUser = async(req, res) => {
 
     if(newUser){
 
-        generateTokenAndSetCookie(newUser._id, res)
+        generateTokenAndSetCookie( user._id, res)
+
         res.status(201).json({
             _id: newUser._id,
             name: newUser.name,
@@ -61,8 +62,8 @@ const loginUser = async (req, res) => {
             email: user.email,
             username: user.username,
             bio: user.bio,
-            profilePic
-            name: user.name,
+            profilePic: user.profilePic
+          
         })
     } catch (error) {
         
