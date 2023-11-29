@@ -71,7 +71,7 @@ const loginUser = async (req, res) => {
         console.log("Error in loginUser: ", error.message);
         
     }
-    
-}
 
+}
+ 
 module.exports = { signUpUser, loginUser }
