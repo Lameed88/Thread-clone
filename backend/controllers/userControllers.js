@@ -90,7 +90,7 @@ const followUnFollowUser = async (req, res) => {
     const userToModify = await User.findById(id)
     const currentUser = await User.findById(id)(req.user_id)
 
-    if (id ===)
+    if (id === req.user._id.toString())
 
     try {
         
