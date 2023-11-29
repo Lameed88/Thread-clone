@@ -1,6 +1,30 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcryptjs");
 const generateTokenAndSetCookie = require("../utils/helper/generateTokenAndSetCookie");
+const mongoose = require ('mongoose')
+
+
+const getUserProfile = async (req, res) =>{
+
+    //we fetch the user profile either by username or userId
+    // QUery is either username or userId
+    const { query } = req.params
+
+
+
+    try {
+
+        let user
+
+        //Query is user ID
+        if (mongoose.Types.ObjectId.isValid(query)) {
+            user = await User.findOne({_id: query}).select("-password").select("-updatedAt")
+        }else
+    } catch (error) {
+        
+    }
+
+}
 
 const signUpUser = async (req, res) => {
   try {
@@ -113,8 +137,6 @@ const followUnFollowUser = async (req, res) => {
 	}
 };
 
-const getUserProfile = async (req, res) =>{
 
-}
 
 module.exports = { signUpUser, loginUser, logoutUser, followUnFollowUser, getUserProfile };
