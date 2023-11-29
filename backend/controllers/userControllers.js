@@ -65,6 +65,8 @@ const loginUser = async (req, res) => {
             profilePic: user.profilePic
           
         })
+
+        
     } catch (error) {
         
     }
