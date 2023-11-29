@@ -31,8 +31,7 @@ const signUpUser = async(req, res) => {
             name: newUser.name,
             email: newUser.email,
             username: newUser.username,
-           
-
+        
         })
     }
 
