@@ -148,7 +148,24 @@ const updateUser = async (req, res) => {
     const userId = req.user._id
 
     try {
-        let user = await
+        let user = await User.findById(userId)
+        if (!user) return res.status(400).json({message: "Usernot found"})
+
+        if (password) {
+            const salt = await bcrypt.genSalt(10)
+            const hashedPassword = await bcrypt.hash(password, salt)
+            user.password = hashedPassword
+        }
+
+        user.name = name || user.name
+        user.email = email || email.user
+        user.username = username || user.name
+        user.profilePic = profilePic || user.profilePic
+        user.bio = bio || user.bio
+
+        user = await user.save()
+
+        
         
     } catch (error) {
         res.status(500).json({message: error.message})
