@@ -1,3 +1,5 @@
+const User = require("../models/userModel")
+
 const createPost = async (req, res) =>{
     try {
         const {postedBy, text, img} = req.body
@@ -5,8 +7,8 @@ const createPost = async (req, res) =>{
         if (!postedBy || !text) {
             return res. status(400).json({message: "postedBy and text field are required"})
         }
-        const user = await User.findById(postedBy)
-        
+        const user = await User .findById(postedBy)
+
     } catch (error) {
         
     }
