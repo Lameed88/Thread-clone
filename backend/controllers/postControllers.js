@@ -1,3 +1,4 @@
+const Post = require("../models/postModel")
 const User = require("../models/userModel")
 
 const createPost = async (req, res) =>{
@@ -17,7 +18,7 @@ const createPost = async (req, res) =>{
             return res.status(400).json({message: `Text must less than ${maxLength} characters`})
         }
 
-        const newPost = new Post ({postedBy, text, img}) 
+        const newPost = new Post({postedBy, text, img}) 
 
         await newPost.save()
 
@@ -30,4 +31,42 @@ const createPost = async (req, res) =>{
     }
 
 }
-module.exports = { createPost }
+const getPost = async(req, res) =>{
+    try {
+        const post = await Post.findById(req.params.id)
+
+        if (!post){
+            return res.status(404).json({message: "Post not found"})
+        }
+        res.status(200).json({post})
+        
+    } catch (error) {
+        res.status(500).json({message: error.message})// internal server error
+        console.log("Error in get Post: ", error.message);
+        
+    }
+
+
+}
+
+const deletePost = async (req, res) =>{
+    try {
+        const post = await Post.findById(req.params.id)
+
+        if (!post){
+            return res.status(404).json({message: "post not found"})
+        }
+
+        if(post.postedBy.toString() !==req.user._id.toString()){
+            return res.status(401).json({message:"Unauthorized to delete this post"})
+        }
+        await Post.findByIdAndDelete(req.params.id)
+        res.status(200).json({message: "Post deleted successfully"})
+
+    } catch (error) {
+        res.status(500).json({message: error.message})// internal server error
+        console.log("Error in delete Post: ", error.message);
+    }
+}
+
+module.exports = { createPost, getPost, deletePost }
