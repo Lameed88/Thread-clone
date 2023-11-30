@@ -4,7 +4,7 @@ const protectRoute = require ('../middleware/protectRoute')
 
 const router = express.Router()
 
-router.post("/feed", protectRoute, getFeedPost )
+router.get("/feed", protectRoute, getFeedPost )
 router.get("/:id", getPost)
 router.post("/create", protectRoute, createPost)
 router.delete("/:id", protectRoute, deletePost)
