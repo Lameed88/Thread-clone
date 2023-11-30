@@ -149,7 +149,10 @@ const updateUser = async (req, res) => {
 
     try {
         let user = await User.findById(userId)
-        if (!user) return res.status(400).json({message: "Usernot found"})
+        if (!user) return res.status(400).json({message: "User not found"})
+
+        if (req.params.id !== userId.toString())
+        return res.status(400).json({message: "You cannot update other user's profile"})
 
         if (password) {
             const salt = await bcrypt.genSalt(10)
@@ -158,8 +161,8 @@ const updateUser = async (req, res) => {
         }
 
         user.name = name || user.name
-        user.email = email || email.user
-        user.username = username || user.name
+        user.email = email || user.email
+        user.username = username || user.username
         user.profilePic = profilePic || user.profilePic
         user.bio = bio || user.bio
 
