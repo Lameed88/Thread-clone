@@ -45,5 +45,5 @@ const postSchema = mongoose.Schema(
 }
 );
 
-const post = mongoose.model("post", postSchema);
-export default post;
+const Post = mongoose.model("post", postSchema);
+module.exports = Post;
