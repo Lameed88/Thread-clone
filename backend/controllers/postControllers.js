@@ -7,7 +7,7 @@ const createPost = async (req, res) =>{
         if (!postedBy || !text) {
             return res. status(400).json({message: "postedBy and text field are required"})
         }
-        const user = await User .findById(postedBy)
+        const user = await User.findById(postedBy)
         if (!user){
             res.status(404).json({message: "user not found"})
         }
