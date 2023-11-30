@@ -142,13 +142,17 @@ const followUnFollowUser = async (req, res) => {
 		console.log("Error in followUnFollowUser: ", err.message);
 	}
 };
-const update = async (req, res) => {
+const updateUser = async (req, res) => {
+
+    const {name, email, username, password, profilePic, bio} = req.body
+    const userId = req.user._id
 
     try {
+        let user = await
         
     } catch (error) {
         res.status(500).json({message: error.message})
-        console.log("Error in updateUser: ", error.message);
+        console.log("Error in update User: ", error.message);
         
     }
 
