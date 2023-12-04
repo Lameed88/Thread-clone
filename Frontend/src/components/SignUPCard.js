@@ -25,7 +25,7 @@ import userAtom from '../atoms/userAtom'
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false)
   const setAuthScreen = useSetRecoilState(authScreenAtom)
-  const [inputs, setinputs] = useState({
+  const [inputs, setInputs] = useState({
     name: '',
     username: '',
     email:'',
@@ -81,13 +81,20 @@ export default function SignupCard() {
               <Box>
                 <FormControl isRequired>
                   <FormLabel>Fool Name</FormLabel>
-                  <Input type="text" />
+                  <Input type="text" 
+                  onChange={(e) => setInputs({... inputs, name: e.target.value})}
+                  value={inputs.name}
+
+                  />
                 </FormControl>
               </Box>
               <Box>
-                <FormControl id="lastName">
-                  <FormLabel>Last Name</FormLabel>
-                  <Input type="text" />
+                <FormControl isRequired>
+                  <FormLabel>Username</FormLabel>
+                  <Input type="text" 
+                  onChange={(e) => setInputs({... inputs, username: e.target.value})}
+                  value={inputs.username}
+                  />
                 </FormControl>
               </Box>
             </HStack>
