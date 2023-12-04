@@ -40,7 +40,7 @@ export default function SignupCard() {
       const res = await fetch()
       
     } catch (error) {
-      showToast()
+      showToast("Error")
       
     }
   }
