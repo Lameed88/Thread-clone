@@ -159,7 +159,7 @@ const getFeedPost = async(req, res) => {
     } catch (error) {
         res.status(500).json({message: error.message})// internal server error
         console.log("Error in Get feed Post : ", error.message);
-    }
+    } 
 }
 
 module.exports = { createPost, getPost, deletePost, likeUnlikePost, replyToPost, getFeedPost }
