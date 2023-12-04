@@ -6,7 +6,6 @@ import {
   Box,
   Divider,
   Button,
-  center,
 } from "@chakra-ui/react";
 import Actions from "../components/Actions";
 import { BsThreeDots } from "react-icons/bs";

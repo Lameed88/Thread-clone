@@ -38,7 +38,7 @@ const signUpUser = async (req, res) => {
     const user = await User.findOne({ $or: [{ email }, { username }] });
 
     if (user) {
-      return res.status(400).json({ message: "User already exits" });
+      return res.status(400).json({ error: "User already exits" });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -149,10 +149,10 @@ const updateUser = async (req, res) => {
 
     try {
         let user = await User.findById(userId)
-        if (!user) return res.status(400).json({message: "User not found"})
+        if (!user) return res.status(400).json({error: "User not found"})
 
         if (req.params.id !== userId.toString())
-        return res.status(400).json({message: "You cannot update other user's profile"})
+        return res.status(400).json({error: "You cannot update other user's profile"})
 
         if (password) {
             const salt = await bcrypt.genSalt(10)
