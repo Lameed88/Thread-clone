@@ -1,5 +1,5 @@
 const express = require ('express')
-const { createPost, getPost, deletePost, likeUnlikePost, replyToPost, getFeedPost } = require ('../controllers/postControllers')
+const { createPost, getPost, deletePost, likeUnlikePost, replyToPost, getFeedPost, getUserPosts } = require ('../controllers/postControllers')
 const protectRoute = require ('../middleware/protectRoute')
 
 const router = express.Router()
@@ -10,6 +10,8 @@ router.post("/create", protectRoute, createPost)
 router.delete("/:id", protectRoute, deletePost)
 router.post("/like/:id", protectRoute, likeUnlikePost)
 router.post("/reply/:id", protectRoute, replyToPost)
+router.get("/user/username",  getUserPosts) 
+
 
 
 module.exports = router
