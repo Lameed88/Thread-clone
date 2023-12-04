@@ -33,6 +33,10 @@ import {
            
           </Stack>
           <Box
+          w={{
+            base: "full",
+            sm: "400px"
+          }}
             rounded={'lg'}
             bg={useColorModeValue('white', 'gray.dark')}
             boxShadow={'lg'}
@@ -71,7 +75,7 @@ import {
               </Stack>
               <Stack pt={6}>
                 <Text align={'center'}>
-                  Already a user? <Link color={'blue.400'}>Login</Link>
+                  Don&apos;t have an account? {""}<Link color={'blue.400'}>SignUP</Link>
                 </Text>
               </Stack>
             </Stack>
