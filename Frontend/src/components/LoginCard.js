@@ -38,7 +38,7 @@ import {
             boxShadow={'lg'}
             p={8}>
             <Stack spacing={4}>
-              
+        
               <FormControl id="email" isRequired>
                 <FormLabel>Email address</FormLabel>
                 <Input type="email" />
