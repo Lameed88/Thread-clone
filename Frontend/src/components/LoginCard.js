@@ -37,10 +37,10 @@ import {
             bg={useColorModeValue('white', 'gray.dark')}
             boxShadow={'lg'}
             p={8}>
-            <Stack spacing={4}>
-         
+            <Stack spacing={4}> 
+
               <FormControl id="email" isRequired>
-                <FormLabel>Email address</FormLabel>
+                <FormLabel>username</FormLabel>
                 <Input type="email" />
               </FormControl>
               <FormControl id="password" isRequired>
