@@ -41,7 +41,7 @@ import {
 
               <FormControl id="email" isRequired>
                 <FormLabel>username</FormLabel>
-                <Input type="email" />
+                <Input type="text" />
               </FormControl>
               <FormControl id="password" isRequired>
                 <FormLabel>Password</FormLabel>
