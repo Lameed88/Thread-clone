@@ -70,7 +70,7 @@ import {
   
                   bg: useColorModeValue('gray.700', 'gray.800')
                   }}>
-                  Sign up
+                  Login
                 </Button>
               </Stack>
               <Stack pt={6}>
