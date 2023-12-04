@@ -158,7 +158,7 @@ const updateUser = async (req, res) => {
             const salt = await bcrypt.genSalt(10)
             const hashedPassword = await bcrypt.hash(password, salt)
             user.password = hashedPassword
-        }
+        } 
 
         user.name = name || user.name
         user.email = email || user.email
