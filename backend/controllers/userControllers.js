@@ -63,7 +63,7 @@ const signUpUser = async (req, res) => {
       });
     }
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    res.status(500).json({ error: error.message });
     console.log(("Error in signupUser: ", error.message));
   }
 };
@@ -138,7 +138,7 @@ const followUnFollowUser = async (req, res) => {
 			res.status(200).json({message: "User followed Successfully"})
 		}
 	} catch (err) {
-		res.status(500).json({ message: err.message }); //Internal server error
+		res.status(500).json({ error: err.message }); //Internal server error
 		console.log("Error in followUnFollowUser: ", err.message);
 	}
 };
@@ -171,7 +171,7 @@ const updateUser = async (req, res) => {
         res.status(200).json({mesage: "Profile updated successfully", user})
         
     } catch (error) {
-        res.status(500).json({message: error.message})
+        res.status(500).json({error: error.message})
         console.log("Error in update User: ", error.message);
         
     }
