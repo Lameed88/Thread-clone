@@ -80,7 +80,7 @@ export default function SignupCard() {
             <HStack>
               <Box>
                 <FormControl isRequired>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel>Fool Name</FormLabel>
                   <Input type="text" />
                 </FormControl>
               </Box>
