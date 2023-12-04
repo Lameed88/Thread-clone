@@ -25,7 +25,7 @@ export default function SignupCard() {
   const setAuthScreen = useSetRecoilState(authScreenAtom)
   const [inputs, setinputs] = useState({
     name: '',
-    username,
+    username: '',
     email:'',
     password: ''
   })
