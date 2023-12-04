@@ -42,8 +42,10 @@ export default function SignupCard() {
         headers: {
           "Content-Type": "application/json"
         },
-        body:
+        body: JSON.stringify(inputs)
       })
+      const data = await res.json()
+      
       
     } catch (error) {
       showToast("Error", error, )
