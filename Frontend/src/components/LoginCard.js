@@ -61,7 +61,7 @@ export default function SignupCard() {
     } catch (error) {
       showToast("Error", error, "error");
     }
-  };
+  }; 
       
   return (
     <Flex align={"center"} justify={"center"}>
