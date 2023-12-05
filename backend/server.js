@@ -28,7 +28,7 @@ app.use("/api/users", userRoutes)
 app.use("/api/posts", postRoutes)
 app.get("/", (req, res) =>
     res.send("Welcome Home 🏡🏡🏡🏡🏡")
-})
+)
 
 mongoose.connect(process.env.MONGO_URI).then(() => {
     app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`))
