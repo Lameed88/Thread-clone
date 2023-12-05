@@ -40,7 +40,7 @@ export default function UpdateProfilePage() {
          
           <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-              <Avatar size="xl" src="https://bit.ly/sage-adebayo">
+              <Avatar size="xl" src="https://bit.ly/sage-adebayo"/>
                 
             </Center>
             <Center w="full">
