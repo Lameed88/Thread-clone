@@ -21,6 +21,7 @@ export default function UpdateProfilePage() {
      
       align={'center'}
       justify={'center'}
+      my={6}
     >
       <Stack
         spacing={4}
