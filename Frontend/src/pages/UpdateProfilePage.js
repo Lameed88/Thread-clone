@@ -18,6 +18,7 @@ import { useRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
 import usePreviewImg from '../hooks/usePreviewImg'
 
+
 export default function UpdateProfilePage() {
     const [user, setUser] = useRecoilState(userAtom)
     const [inputs, setInputs] = useState ({
@@ -30,7 +31,7 @@ export default function UpdateProfilePage() {
     }) 
 
     const fileRef = useRef(null) 
-    const {handleImageChange} = usePreviewImg()
+    const {imgUrl,handleImageChange} = usePreviewImg()
 
     
   return (
