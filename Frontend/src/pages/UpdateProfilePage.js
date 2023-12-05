@@ -14,10 +14,12 @@ import {
   Center,
 } from '@chakra-ui/react'
 import { useState } from 'react'
+import { useRecoilState } from 'recoil'
+import userAtom from '../atoms/userAtom'
 
 
 export default function UpdateProfilePage() {
-    const 
+    const [user, setUser] = useRecoilState(userAtom)
     const [inputs, setInputs] = useState ({
         name: '',
         username: '',
