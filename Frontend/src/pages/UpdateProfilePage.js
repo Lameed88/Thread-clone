@@ -13,7 +13,7 @@ import {
 
   Center,
 } from '@chakra-ui/react'
-import { SmallCloseIcon } from '@chakra-ui/icons'
+
 
 export default function UpdateProfilePage() {
   return (
