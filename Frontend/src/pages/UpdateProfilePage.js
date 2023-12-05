@@ -13,7 +13,7 @@ import {
 
   Center,
 } from '@chakra-ui/react'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
 
@@ -27,8 +27,9 @@ export default function UpdateProfilePage() {
         password:'',
       
     }) 
+
     const fileRef = useRef(null) 
-    
+
     console.log(user, "user is here");
   return (
     <Flex
