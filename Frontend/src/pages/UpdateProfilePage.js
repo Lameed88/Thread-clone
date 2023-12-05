@@ -16,6 +16,7 @@ import {
 import { useRef, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
+import usePreviewImg from '../hooks/usePreviewImg'
 
 export default function UpdateProfilePage() {
     const [user, setUser] = useRecoilState(userAtom)
@@ -29,8 +30,9 @@ export default function UpdateProfilePage() {
     }) 
 
     const fileRef = useRef(null) 
+    const {handleImageChange} = usePreviewImg()
 
-    console.log(user, "user is here");
+    
   return (
     <Flex
      
@@ -59,7 +61,7 @@ export default function UpdateProfilePage() {
             </Center>
             <Center w="full">
               <Button w="full" onClick={() => fileRef.current.click()}>Change Avatar</Button>
-              <Input type='file' hidden ref={fileRef}/>
+              <Input type='file' hidden ref={fileRef} onChange={handleImageChange}/>
             </Center>
           </Stack>
         </FormControl>
