@@ -9,7 +9,7 @@ import AuthPage from './pages/AuthPage';
 import { useRecoilValue } from 'recoil';
 import userAtom from './atoms/userAtom';
 
-     
+      
 function App() {
   const user = useRecoilValue(userAtom) 
   console.log(user);
