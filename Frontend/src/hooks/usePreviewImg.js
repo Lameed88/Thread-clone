@@ -12,6 +12,7 @@ const usePreviewImg = () => {
       reader.onloadend = () => {
         setImgUrl(reader.result)
       }
+      reader.readAsDataURL(file)
     }
     
   }
