@@ -102,7 +102,7 @@ export default function UpdateProfilePage() {
             color={'white'}
             w="full"
             _hover={{
-              bg: 'gre.500',
+              bg: 'green.500',
             }}>
             Submit
           </Button>
