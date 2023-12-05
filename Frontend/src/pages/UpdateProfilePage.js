@@ -36,7 +36,7 @@ export default function UpdateProfilePage() {
         <Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
           User Profile Edit
         </Heading>
-        <FormControl id="userName">
+        <FormControl >
          
           <Stack direction={['column', 'row']} spacing={6}>
             <Center>
@@ -48,7 +48,7 @@ export default function UpdateProfilePage() {
             </Center>
           </Stack>
         </FormControl>
-        <FormControl id="userName" isRequired>
+        <FormControl  isRequired>
           <FormLabel>User name</FormLabel>
           <Input
             placeholder="UserName"
@@ -56,7 +56,7 @@ export default function UpdateProfilePage() {
             type="text"
           />
         </FormControl>
-        <FormControl id="email" isRequired>
+        <FormControl isRequired>
           <FormLabel>Email address</FormLabel>
           <Input
             placeholder="your-email@example.com"
@@ -64,7 +64,7 @@ export default function UpdateProfilePage() {
             type="email"
           />
         </FormControl>
-        <FormControl id="password" isRequired>
+        <FormControl  isRequired>
           <FormLabel>Password</FormLabel>
           <Input
             placeholder="password"
