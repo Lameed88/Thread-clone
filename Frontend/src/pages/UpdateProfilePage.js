@@ -17,7 +17,6 @@ import { useState } from 'react'
 import { useRecoilState } from 'recoil'
 import userAtom from '../atoms/userAtom'
 
-
 export default function UpdateProfilePage() {
     const [user, setUser] = useRecoilState(userAtom)
     const [inputs, setInputs] = useState ({
