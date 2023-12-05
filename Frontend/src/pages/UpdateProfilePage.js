@@ -30,7 +30,7 @@ export default function UpdateProfilePage() {
         rounded={'xl'}
         boxShadow={'lg'}
         p={6}
-        my={12}>
+        >
         <Heading lineHeight={1.1} fontSize={{ base: '2xl', sm: '3xl' }}>
           User Profile Edit
         </Heading>
