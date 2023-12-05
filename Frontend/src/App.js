@@ -12,7 +12,7 @@ import userAtom from './atoms/userAtom';
 
 
 function App() {
-  const user = useRecoilValue(userAtom)
+  const user = useRecoilValue(userAtom) 
   console.log(user);
   
   return (
