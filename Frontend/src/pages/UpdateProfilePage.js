@@ -44,7 +44,7 @@ export default function UpdateProfilePage() {
                 
             </Center>
             <Center w="full">
-              <Button w="full">Change Icon</Button>
+              <Button w="full">Change Avatar</Button>
             </Center>
           </Stack>
         </FormControl>
