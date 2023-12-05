@@ -110,7 +110,7 @@ const logoutUser = (req, res) => {
     console.log("Error in LogoutUser", error.message);
   }
 };
-
+ 
 const followUnFollowUser = async (req, res) => {
     try {
 		const {id} = req.params
