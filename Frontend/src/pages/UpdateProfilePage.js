@@ -27,7 +27,8 @@ export default function UpdateProfilePage() {
         password:'',
       
     }) 
-    const fileRef =
+    const fileRef = useRef(null) 
+    
     console.log(user, "user is here");
   return (
     <Flex
