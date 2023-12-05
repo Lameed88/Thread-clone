@@ -2,7 +2,7 @@
 
 const LogoutButton = () => {
   return (
-    <div>LogoutButton</div>
+    <div></div>
   )
 }
 
