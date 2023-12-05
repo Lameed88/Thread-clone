@@ -9,7 +9,9 @@ const usePreviewImg = () => {
     if (file && file.type.startsWith("image/")){
       const reader = new FileReader()
 
-      reader.onloadend = () =>
+      reader.onloadend = () => {
+        setImgUrl(reader.result)
+      }
     }
     
   }
