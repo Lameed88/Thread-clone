@@ -40,7 +40,7 @@ export default function SignupCard() {
   const handleLogin = async () => {
     try {
    
-      const res = await fetch("/api/users/logout", {
+      const res = await fetch("/api/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

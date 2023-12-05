@@ -20,12 +20,14 @@ import userAtom from '../atoms/userAtom'
 export default function UpdateProfilePage() {
     const [user, setUser] = useRecoilState(userAtom)
     const [inputs, setInputs] = useState ({
-        name: '',
-        username: '',
-        email:'',
-        bio:'',
+        name: user.name,
+        username: user.username,
+        email: user.email,
+        bio: user.bio,
         password:'',
-    })
+      
+    }) 
+    const fileRef =
     console.log(user, "user is here");
   return (
     <Flex
@@ -50,21 +52,24 @@ export default function UpdateProfilePage() {
          
           <Stack direction={['column', 'row']} spacing={6}>
             <Center>
-              <Avatar size="xl" src="https://bit.ly/sage-adebayo"/>
+              <Avatar size="xl" boxShadow={'md'} src={user.profilePic} />
                 
             </Center>
             <Center w="full">
-              <Button w="full">Change Avatar</Button>
+              <Button w="full" onClick={() => fileRef.current.click()}>Change Avatar</Button>
+              <Input type='file' hidden ref={fileRef}/>
             </Center>
           </Stack>
         </FormControl>
         <FormControl  isRequired>
           <FormLabel>Full name</FormLabel>
           <Input
-            placeholder="UserName"
+            placeholder="Full Name"
             _placeholder={{ color: 'gray.500' }}
             type="text"
-          />
+            value={inputs.name} onChange={(e) => setInputs((inputs) => ({...inputs, name: e.target.value}))}/>
+
+          
         </FormControl>
         <FormControl  isRequired>
           <FormLabel>User name</FormLabel>
@@ -72,7 +77,10 @@ export default function UpdateProfilePage() {
             placeholder="UserName"
             _placeholder={{ color: 'gray.500' }}
             type="text"
-          />
+           value={inputs.username} onChange={(e) => setInputs((inputs) => ({...inputs, username: e.target.value}))}/>
+
+            
+        
         </FormControl>
         <FormControl isRequired>
           <FormLabel>Email address</FormLabel>
@@ -80,7 +88,9 @@ export default function UpdateProfilePage() {
             placeholder="your-email@example.com"
             _placeholder={{ color: 'gray.500' }}
             type="email"
-          />
+           value={inputs.email} onChange={(e) => setInputs((inputs) => ({...inputs, email: e.target.value}))}/>
+
+      
         </FormControl>
         <FormControl isRequired>
           <FormLabel>Bio</FormLabel>
@@ -88,7 +98,9 @@ export default function UpdateProfilePage() {
             placeholder="your bio..."
             _placeholder={{ color: 'gray.500' }}
             type="textarea"
-          />
+           value={inputs.bio} onChange={(e) => setInputs((inputs) => ({...inputs, bio: e.target.value}))}/>
+
+      
         </FormControl>
         <FormControl  isRequired>
           <FormLabel>Password</FormLabel>
@@ -96,7 +108,9 @@ export default function UpdateProfilePage() {
             placeholder="password"
             _placeholder={{ color: 'gray.500' }}
             type="password"
-          />
+          value={inputs.password} onChange={(e) => setInputs((inputs) => ({...inputs, password: e.target.value}))}/>
+
+        
         </FormControl>
         <Stack spacing={6} direction={['column', 'row']}>
           <Button
