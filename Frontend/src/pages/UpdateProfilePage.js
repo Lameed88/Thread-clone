@@ -17,11 +17,13 @@ import { useState } from 'react'
 
 
 export default function UpdateProfilePage() {
+    const 
     const [inputs, setInputs] = useState ({
         name: '',
         username: '',
         email:'',
-        bio:
+        bio:'',
+        password:'',
     })
   return (
     <Flex
