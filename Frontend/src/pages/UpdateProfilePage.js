@@ -13,9 +13,16 @@ import {
 
   Center,
 } from '@chakra-ui/react'
+import { useState } from 'react'
 
 
 export default function UpdateProfilePage() {
+    const [inputs, setInputs] = useState ({
+        name: '',
+        username: '',
+        email:'',
+        bio:
+    })
   return (
     <Flex
      
