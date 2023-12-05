@@ -27,6 +27,7 @@ export default function UpdateProfilePage() {
         bio:'',
         password:'',
     })
+    console.log(user, "user is here");
   return (
     <Flex
      
