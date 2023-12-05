@@ -45,7 +45,7 @@ export default function SignupCard() {
         },
         body: JSON.stringify(inputs),
       });
-      
+
       const data = await res.json();
 
       if (data.error) {
@@ -55,6 +55,7 @@ export default function SignupCard() {
 
       localStorage.setItem("user-threads", JSON.stringify(data));
       setUser(data);
+      
     } catch (error) {
       showToast("Error", error, "error");
     }
