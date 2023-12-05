@@ -28,13 +28,14 @@ import userAtom from "../atoms/userAtom";
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
   const setAuthScreen = useSetRecoilState(authScreenAtom);
+  const setUser = useSetRecoilState(userAtom)
+
   const [inputs, setInputs] = useState ({
     username:"",
     password: "",
   })
 
   const showToast = useShowToast()
-  const setUser = useSetRecoilState(userAtom)
 
   const handleLogin = async () => {
     try {
