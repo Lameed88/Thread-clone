@@ -57,6 +57,9 @@ const UserHeader = ({user}) => {
       </Flex>
           
       <Text>{user.bio}</Text>
+      {currentUser._id === user._id && (
+        
+      )}
 
       <Link as={RouterLink} to='/update'>
       <Button size={"sm"}>update Profile</Button>
