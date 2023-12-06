@@ -40,12 +40,12 @@ export default function UpdateProfilePage() {
 
       try {
        
-        const res = await fetch(`api/users/update/${user._id}`, {
+        const res = await fetch(`/api/users/update/${user._id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({...inputs, profilePic: imgUrl})
+          body: JSON.stringify({...inputs, profilePic: imgUrl}),
 
         }) 
         const data = await res.json()
