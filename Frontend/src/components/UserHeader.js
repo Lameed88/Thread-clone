@@ -1,13 +1,16 @@
 import { Box, Flex, VStack, Text, Link } from "@chakra-ui/layout";
-import { Avatar } from "@chakra-ui/react";
+import { Avatar, Button } from "@chakra-ui/react";
 import { BsInstagram } from "react-icons/bs";
 import { CgMoreO } from "react-icons/cg";
 import { useToast } from '@chakra-ui/toast'
 import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 import { Portal } from "@chakra-ui/portal";
+import userAtom from "../atoms/userAtom";
+import { useRecoilValue } from "recoil";
 
 const UserHeader = ({user}) => {
     const toast = useToast()
+    const currentUser= useRecoilValue(userAtom)
     const copyURL = () => {
         const currentURL = window.location.href;
         navigator.clipboard.writeText(currentURL).then(() => {
@@ -47,15 +50,20 @@ const UserHeader = ({user}) => {
           )}
           {!user.profilePic && (
 
-          <Avatar name={user.name} src="https://bit.ly/broken-link" size={{base: "md", md: "xl"}} />
+          <Avatar name={user.name} src="https://tinyurl.com/8tey6b7z" size={{base: "md", md: "xl"}} />
           )}
         </Box>
       </Flex>
           
       <Text>{user.bio}</Text>
+
+      <Link>
+      <Button size={"sm"}>update Profile</Button>
+      </Link>
+
       <Flex w={"full"} justifyContent={"space-between"}>
         <Flex gap={2} alignItems={"center"}>
-          <Text color={"gray.light"}> 3.2k followers</Text>
+          <Text color={"gray.light"}> {user.followers.length}</Text>
           <Box w={1} h={1} bg={"gray.light"} borderRadius="50%"></Box>
           <Link color={"gray.light"}>Instagram.com</Link>
         </Flex>
