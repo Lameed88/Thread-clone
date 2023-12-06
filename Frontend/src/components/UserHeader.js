@@ -40,7 +40,7 @@ const UserHeader = ({ user }) => {
 
     if(updating) return
     setUpdating(true)
-    
+
     try {
       const res = await fetch(`/api/users/follow/${user._id}`, {
 
@@ -71,6 +71,8 @@ const UserHeader = ({ user }) => {
 
     } catch (error) {
       showToast("Error", error, "error")
+    }finally {
+      setUpdating(false)
     }
 
   }
@@ -123,7 +125,7 @@ const UserHeader = ({ user }) => {
 
       {currentUser._id !== user._id && (
         <Link as={RouterLink} >
-          <Button size={"sm"} onClick={handleFollowUnfollow}>{following ? "unfollow" : "follow"} </Button>
+          <Button size={"sm"} onClick={handleFollowUnfollow}> isloading={updating}{following ? "unfollow" : "follow"} </Button>
         </Link>
       )}
 
