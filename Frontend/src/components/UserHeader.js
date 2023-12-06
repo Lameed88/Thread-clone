@@ -29,6 +29,7 @@ const UserHeader = ({ user }) => {
       });
     });
   };
+  
   const handlefollowunfollow = async () =>{
     try {
       
