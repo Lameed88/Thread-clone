@@ -33,6 +33,14 @@ const UserHeader = ({ user }) => {
   };
 
   const handleFollowUnfollow = async () =>{
+    if (!currentUser) {
+      showToast("Error", "please login to follow", "error")
+      return
+    }
+
+    if(updating) return
+    setUpdating(true)
+    
     try {
       const res = await fetch(`/api/users/follow/${user._id}`, {
 
