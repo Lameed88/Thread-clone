@@ -7,6 +7,7 @@ import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 import { Portal } from "@chakra-ui/portal";
 import userAtom from "../atoms/userAtom";
 import { useRecoilValue } from "recoil";
+import {Link as RuterLink} from "react-router-dom" 
 
 const UserHeader = ({user}) => {
     const toast = useToast()
