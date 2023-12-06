@@ -1,40 +1,60 @@
-import UserHeader from "../components/UserHeader"
-import UserPosts from "../components/UserPosts"
-
+import { useEffect, useState } from "react";
+import UserHeader from "../components/UserHeader";
+import UserPosts from "../components/UserPosts";
+import { useParams } from "react-router-dom";
 
 const UserPage = () => {
-  return(
-<>
-  <UserHeader />
-  <UserPosts userAvatar={"https://bit.ly/tioluwani-kolawole"}
-  likes={200}
-  replies={50}
-  postImage={"/post1.png"}
-  postTitle={"Hello, eku ojo merin nile yii o "}
-  />
+  const [user, setUser] = useState(null);
+  const { username } = useParams;
 
-   <UserPosts userAvatar={"https://bit.ly/tioluwani-kolawole"}
-  likes={100}
-  replies={40}
-  postImage={"/post3.png"}
-  postTitle={"This is great"}
-  
-  />
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const res = await fetch(`api/users/profile/${username}`);
+        const data = await res.json();
+      
+        if (data.error) {
+          showToast("Error", data.error, "Error")
+          return
+        }
+        setUser(data)
+        
+        
+      } catch (error) {
+        console.log(error);
+      }
+    };getUser()
 
-<UserPosts userAvatar={"https://bit.ly/tioluwani-kolawole"}
-  likes={80}
-  replies={20}
-  postImage={"/post2.png"}
-  postTitle={"wow! awesome"} 
-  
-  />
+  }, [username]);
 
- 
-  </>
+  return (
+    <>
+      <UserHeader user={user} />
+      <UserPosts
+        userAvatar={"https://bit.ly/tioluwani-kolawole"}
+        likes={200}
+        replies={50}
+        postImage={"/post1.png"}
+        postTitle={"Hello, eku ojo merin nile yii o "}
+      />
 
-  )
- 
-  
-}
+      <UserPosts
+        userAvatar={"https://bit.ly/tioluwani-kolawole"}
+        likes={100}
+        replies={40}
+        postImage={"/post3.png"}
+        postTitle={"This is great"}
+      />
 
-export default UserPage
+      <UserPosts
+        userAvatar={"https://bit.ly/tioluwani-kolawole"}
+        likes={80}
+        replies={20}
+        postImage={"/post2.png"}
+        postTitle={"wow! awesome"}
+      />
+    </>
+  );
+};
+
+export default UserPage;
