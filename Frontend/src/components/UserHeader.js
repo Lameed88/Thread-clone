@@ -7,7 +7,7 @@ import { Menu, MenuButton, MenuList, MenuItem } from "@chakra-ui/menu";
 import { Portal } from "@chakra-ui/portal";
 import userAtom from "../atoms/userAtom";
 import { useRecoilValue } from "recoil";
-import {Link as RuterLink} from "react-router-dom" 
+import {Link as RouterLink} from "react-router-dom" 
 
 const UserHeader = ({user}) => {
     const toast = useToast()
@@ -58,9 +58,9 @@ const UserHeader = ({user}) => {
           
       <Text>{user.bio}</Text>
 
-      <Link>
+      <Link as={RouterLink} to='/update'>
       <Button size={"sm"}>update Profile</Button>
-      </Link>
+      </Link >
 
       <Flex w={"full"} justifyContent={"space-between"}>
         <Flex gap={2} alignItems={"center"}>
