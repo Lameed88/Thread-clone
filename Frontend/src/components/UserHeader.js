@@ -16,7 +16,7 @@ const UserHeader = ({ user }) => {
   const currentUser = useRecoilValue(userAtom);
   const [following, setFolllowing] = useState(user.followers.includes(currentUser._id))
   const showToast = useShowToast()
-  const [updating, setUpdating] = useState (false)
+  const [updating, setUpdating] = useState(false)
 
 
   const copyURL = () => {
@@ -125,7 +125,7 @@ const UserHeader = ({ user }) => {
 
       {currentUser._id !== user._id && (
         <Link as={RouterLink} >
-          <Button size={"sm"} onClick={handleFollowUnfollow}> isloading={updating}{following ? "unfollow" : "follow"} </Button>
+          <Button onClick={handleFollowUnfollow} isLoading={updating} > {following ? "unfollow" : "follow"} </Button>
         </Link>
       )}
 
