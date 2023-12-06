@@ -181,7 +181,7 @@ const updateUser = async (req, res) => {
 
         user = await user.save()
 
-        res.status(200).json(user)
+        res.status(200).json( user )
         
     } catch (error) {
         res.status(500).json({error: error.message})
