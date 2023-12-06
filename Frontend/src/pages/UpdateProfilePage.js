@@ -49,8 +49,15 @@ export default function UpdateProfilePage() {
 
         }) 
         const data = await res.json()
-      
-console.log(data);
+
+        if (data.error){
+          showToast("Error", data.error, "Error")
+          return
+        }
+        showToast("Success", "profile update succefully", "success")
+        setUser(data)
+        localStorage.setItem("user-threads", JSON.stringify(data))
+
       } catch (error) {
         showToast("Error", error, "error")
         
