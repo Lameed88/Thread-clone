@@ -8,10 +8,14 @@ import { Portal } from "@chakra-ui/portal";
 import userAtom from "../atoms/userAtom";
 import { useRecoilValue } from "recoil";
 import { Link as RouterLink } from "react-router-dom";
+import { useState } from "react";
 
 const UserHeader = ({ user }) => {
   const toast = useToast();
   const currentUser = useRecoilValue(userAtom);
+  const [following, setFolllowing] = useState(user.followers.includes(currentUser._id))
+
+
   const copyURL = () => {
     const currentURL = window.location.href;
     navigator.clipboard.writeText(currentURL).then(() => {
@@ -69,9 +73,9 @@ const UserHeader = ({ user }) => {
         </Link>
       )}
 
-      {currentUser._id === user._id && (
-        <Link as={RouterLink} to="/update">
-          <Button size={"sm"}>update Profile</Button>
+      {currentUser._id !== user._id && (
+        <Link as={RouterLink} >
+          <Button size={"sm"}>Follow </Button>
         </Link>
       )}
 
