@@ -21,8 +21,11 @@ const UserPage = () => {
           return;
         }
         setUser(data);
+
       } catch (error) {
         showToast("Error", error, "error");
+      }finally{
+        setLoading(false)
       }
     };
     getUser();
