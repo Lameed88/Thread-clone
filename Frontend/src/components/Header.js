@@ -19,11 +19,11 @@ const Header = () => {
         </Link>
       )}
 
-      {!user && (
+      {/* {!user && (
         <Link as= {RouterLink} to={"/auth"} onClick={() => setAuthScreen("login")}>
           login
         </Link>
-      )}
+      )} */}
 
       <Image
         alt="logo"
