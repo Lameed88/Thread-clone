@@ -21,16 +21,29 @@ import { useRef, useState } from "react";
 import usePreviewImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
 
+const MAX_CHAR = 500;
+
 const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [postText, setPostText] = useState("");
   const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
   const imageRef = useRef(null);
+  const [remainingChar, setRemainingChar] = useState(MAX_CHAR);
+  const [loading, setLoading] = useState(false)
 
-  const handleCreatePost = () => {};
+  const handleTextChange = (e) => {
+    const inputText = e.target.value;
+    if (inputText.length > MAX_CHAR) {
+      const truncatedText = inputText.slice(0, MAX_CHAR);
+      setPostText(truncatedText);
+      setRemainingChar(0);
+    }else{
+        setPostText(inputText)
+        setRemainingChar(MAX_CHAR - inputText.length)
+    }
+  };
 
-  const handleTextChange = () => {};
-
+  const handleCreatePost = async () => {};
   return (
     <>
       <Button
@@ -62,7 +75,7 @@ const CreatePosts = () => {
                 m={1}
                 color={"gray.800"}
               >
-                500/500
+                {remainingChar}/{MAX_CHAR}
               </Text>
               <Input
                 type="file"
