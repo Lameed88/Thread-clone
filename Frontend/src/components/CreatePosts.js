@@ -45,6 +45,19 @@ const CreatePosts = () => {
 
   const handleCreatePost = async () => {
     setLoading(true)
+    try {
+        const res = await fetch ("/api/posts/create", {
+            method: "POST",
+            headers: {"Content_Type": "application/json"
+        },
+
+        body
+    
+        })
+        
+    } catch (error) {
+        
+    }
   };
 
   return (
