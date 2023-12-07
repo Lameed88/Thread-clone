@@ -1,6 +1,7 @@
 import { AddIcon } from '@chakra-ui/icons'
 import { Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Textarea, useDisclosure, Text } from '@chakra-ui/react'
 import { useState } from 'react'
+import usePreviewImg from '../hooks/usePreviewImg'
 
 
 
@@ -8,6 +9,7 @@ const CreatePosts = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [postText, setPostText] = useState("")
+    const {handleImageChange, imgUrl} = usePreviewImg
 
     const handleTextChange = () => {
 
