@@ -31,7 +31,13 @@ const UserPage = () => {
     getUser();
   }, [username, showToast]);
 
-  if (!user ) return null;
+  if (!user && loading) {
+    return (
+      <Flex justifyContent={"center"}>
+        
+      </Flex>
+    )
+  }
 
   return (
     <>
