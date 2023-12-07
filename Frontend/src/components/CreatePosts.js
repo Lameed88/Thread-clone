@@ -1,5 +1,5 @@
 import { AddIcon } from '@chakra-ui/icons'
-import { Button, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
+import { Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Textarea, useDisclosure } from '@chakra-ui/react'
 
 
 const CreatePosts = () => {
@@ -17,7 +17,9 @@ const CreatePosts = () => {
           <ModalHeader>Create Post</ModalHeader>
           <ModalCloseButton />
           <ModalBody p={6}>
-       
+            <FormControl>
+                <Textarea></Textarea>
+            </FormControl>
           </ModalBody>
  
           <ModalFooter>
