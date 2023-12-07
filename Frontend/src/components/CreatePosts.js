@@ -1,5 +1,5 @@
 import { AddIcon } from '@chakra-ui/icons'
-import { Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Textarea, useDisclosure, Text, Input } from '@chakra-ui/react'
+import { Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Textarea, useDisclosure, Text, Input, Flex } from '@chakra-ui/react'
 import { useRef, useState } from 'react'
 import usePreviewImg from '../hooks/usePreviewImg'
 import { BsFillImageFill } from 'react-icons/bs'  
@@ -45,6 +45,11 @@ const CreatePosts = () => {
                 onClick={() => imageRef.current.click()}
                 />
             </FormControl>
+
+            {imgUrl && (
+                <Flex mt={"full"} position={"relative"}></Flex>
+
+            )}
           </ModalBody>
  
           <ModalFooter>
