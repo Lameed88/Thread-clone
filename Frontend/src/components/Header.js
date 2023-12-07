@@ -32,6 +32,13 @@ const Header = () => {
         onClick={toggleColorMode}
         cursor={"pointer"}
       />
+
+      {user && (
+        <Link as={RouterLink} to={`/$user.username`}>
+          <RxAvatar size={24}/>
+        </Link>
+      )}
+
     </Flex>
   );
 };
