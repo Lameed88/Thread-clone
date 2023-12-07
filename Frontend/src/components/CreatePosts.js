@@ -35,6 +35,7 @@ const CreatePosts = () => {
                 <Text fontSize= {"xs"} fw={"bold"} textAlign={"right"} m={1} color={"gray.800"}>
                     500/500
                 </Text>
+                <input type='file' hidden ref={imageRef} onChange={handleImageChange}/>
             </FormControl>
           </ModalBody>
  
