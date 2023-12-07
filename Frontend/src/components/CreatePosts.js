@@ -17,7 +17,7 @@ const CreatePosts = () => {
           <ModalHeader>Create Post</ModalHeader>
           <ModalCloseButton />
           <ModalBody p={6}>
-        Here we go
+       
           </ModalBody>
  
           <ModalFooter>
