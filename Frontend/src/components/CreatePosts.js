@@ -43,7 +43,10 @@ const CreatePosts = () => {
     }
   };
 
-  const handleCreatePost = async () => {};
+  const handleCreatePost = async () => {
+    setLoading(true)
+  };
+
   return (
     <>
       <Button
