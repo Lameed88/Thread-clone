@@ -3,11 +3,13 @@ import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { AiFillHome } from "react-icons/ai"
 import {Link, Link as RouterLink} from "react-router-dom"
-// import RxAvatar from "R"
+import { useState } from "react";
+import {RxAvatar} from "react-icons/rx"
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const user = useRecoilValue(userAtom)
+  const [authScreen, setAuthScreen] = useState(false)
 
   return (
     <Flex justifyContent={"center"} mt={6} mb="12">
