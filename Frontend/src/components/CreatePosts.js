@@ -8,7 +8,7 @@ const CreatePosts = () => {
 
   return (
     <>
-    <Button position={"fixed"} bottom={10} right={10} leftIcon={<AddIcon />} bg={"gray"} onClick={onOpen}>
+    <Button position={"fixed"} bottom={10} right={10} leftIcon={<AddIcon />} bg={"gray.light"} onClick={onOpen}>
         Post
     </Button>
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -20,6 +20,8 @@ const CreatePosts = () => {
             <FormControl>
                 <Textarea
                 placeholder='Post Content Goes Here'
+                onChange={handleTextChange}
+                value={postText}
                 />
             </FormControl>
           </ModalBody>
