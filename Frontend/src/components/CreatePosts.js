@@ -27,6 +27,8 @@ const CreatePosts = () => {
   const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
   const imageRef = useRef(null);
 
+  const handleCreatePost = () => {};
+
   const handleTextChange = () => {};
 
   return (
@@ -93,7 +95,12 @@ const CreatePosts = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={handleCreatePost} isLoading={loading}>
+            <Button
+              colorScheme="blue"
+              mr={3}
+              onClick={handleCreatePost}
+              isLoading={loading}
+            >
               Post
             </Button>
           </ModalFooter>
