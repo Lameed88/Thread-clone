@@ -1,10 +1,17 @@
 import { AddIcon } from '@chakra-ui/icons'
-import { Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Textarea, useDisclosure } from '@chakra-ui/react'
+import { Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Textarea, useDisclosure, Text } from '@chakra-ui/react'
+import { useState } from 'react'
+
 
 
 const CreatePosts = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const [postText, setPostText] = useState("")
+
+    const handleTextChange = () => {
+
+    }
 
   return (
     <>
@@ -21,7 +28,7 @@ const CreatePosts = () => {
                 <Textarea
                 placeholder='Post Content Goes Here'
                 onChange={handleTextChange}
-                value={postText}
+                value={ postText }
                 />
                 <Text fontSize= {"xs"} fw={"bold"} textAlign={"right"} m={1} color={"gray.800"}>
                     500/500
