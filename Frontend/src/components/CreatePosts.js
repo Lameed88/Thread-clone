@@ -15,7 +15,7 @@ const CreatePosts = () => {
  
     const handleTextChange = () => {
 
-    }
+    } 
 
   return (
     <>
