@@ -16,7 +16,9 @@ const Header = () => {
           <AiFillHome size={24} />
         </Link>
       )}
-      
+
+      {!user}
+
       <Image
         alt="logo"
         w={6}
