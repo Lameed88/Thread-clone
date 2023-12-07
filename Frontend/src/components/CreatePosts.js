@@ -22,6 +22,7 @@ import usePreviewImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
 import userAtom from "../atoms/userAtom";
 import { useRecoilValue } from "recoil";
+import useShowToast from "../hooks/useShowToast";
 
 const MAX_CHAR = 500;
 
@@ -59,8 +60,14 @@ const CreatePosts = () => {
           img: imgUrl,
         }),
       });
+
+      const data = await res.json()
+      if (data.error){
+        useShowToast("Error", data.error, "error")
+        return
+      }
     } catch (error) {
-        
+
     }
   };
 
