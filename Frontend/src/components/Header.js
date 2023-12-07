@@ -38,7 +38,7 @@ const Header = () => {
           <RxAvatar size={24}/>
         </Link>
       )}
-
+ 
     </Flex>
   );
 };
