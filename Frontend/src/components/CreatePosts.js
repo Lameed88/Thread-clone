@@ -19,7 +19,7 @@ const CreatePosts = () => {
           <ModalBody p={6}>
         Here we go
           </ModalBody>
-
+ 
           <ModalFooter>
             <Button colorScheme='blue' mr={3} onClick={onClose}>
               Close
