@@ -47,7 +47,12 @@ const CreatePosts = () => {
             </FormControl>
 
             {imgUrl && (
-                <Flex mt={"full"} position={"relative"}></Flex>
+                <Flex mt={"full"} position={"relative"} >
+
+                <Image src= {imgUrl} alt="select img"/>
+
+                
+                </Flex>
 
             )}
           </ModalBody>
