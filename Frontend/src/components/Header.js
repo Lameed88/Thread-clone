@@ -17,7 +17,9 @@ const Header = () => {
         </Link>
       )}
 
-      {!user}
+      {!user && (
+        <Link as= {RouterLink} 
+      )}
 
       <Image
         alt="logo"
