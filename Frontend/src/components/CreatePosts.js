@@ -15,6 +15,7 @@ import {
   Input,
   Flex,
   CloseButton,
+  Image,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import usePreviewImg from "../hooks/usePreviewImg";
