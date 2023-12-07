@@ -23,7 +23,7 @@ import { BsFillImageFill } from "react-icons/bs";
 const CreatePosts = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [postText, setPostText] = useState("");
-  const { handleImageChange, imgUrl } = usePreviewImg();
+  const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
   const imageRef = useRef(null);
 
   const handleTextChange = () => {};
@@ -85,6 +85,7 @@ const CreatePosts = () => {
                   bg={"gray.800"}
                   position={"absolute"}
                   top={2}
+                  right={2}
                 />
               </Flex>
             )}
