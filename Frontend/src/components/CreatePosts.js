@@ -8,7 +8,7 @@ const CreatePosts = () => {
 
   return (
     <>
-    <Button position={"fixed"} bottom={10} right={10} leftIcon={<AddIcon />} bg={"gray.light"} onClick={onOpen}>
+    <Button position={"fixed"} bottom={10} right={10} leftIcon={<AddIcon />} bg={"gray"} onClick={onOpen}>
         Post
     </Button>
     <Modal isOpen={isOpen} onClose={onClose}>
@@ -23,7 +23,7 @@ const CreatePosts = () => {
                 onChange={handleTextChange}
                 value={postText}
                 />
-                <Text>
+                <Text fontSize= {"xs"} fw={"bold"} textAlign={"right"} m={1} color={"gray.800"}>
                     500/500
                 </Text>
             </FormControl>
