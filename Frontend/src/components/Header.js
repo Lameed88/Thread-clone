@@ -12,7 +12,7 @@ const Header = () => {
   const [authScreen, setAuthScreen] = useState(false)
 
   return (
-    <Flex justifyContent={"center"} mt={6} mb="12">
+    <Flex justifyContent={"space-between"} mt={6} mb="12">
       {user && (
         <Link as={RouterLink} to="/">
           <AiFillHome size={24} />
@@ -34,7 +34,7 @@ const Header = () => {
       />
 
       {user && (
-        <Link as={RouterLink} to={`/$user.username`}>
+        <Link as={RouterLink} to={`/${user.username}`}>
           <RxAvatar size={24}/>
         </Link>
       )}
