@@ -18,7 +18,7 @@ const CreatePosts = () => {
           <ModalCloseButton />
           <ModalBody p={6}>
             <FormControl>
-                <Textarea></Textarea>
+                <Textarea/>
             </FormControl>
           </ModalBody>
  
