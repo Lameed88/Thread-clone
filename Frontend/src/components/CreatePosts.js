@@ -20,6 +20,7 @@ import {
 import { useRef, useState } from "react";
 import usePreviewImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
+import userAtom from "../atoms/userAtom";
 
 const MAX_CHAR = 500;
 
@@ -29,7 +30,7 @@ const CreatePosts = () => {
   const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
   const imageRef = useRef(null);
   const [remainingChar, setRemainingChar] = useState(MAX_CHAR);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const handleTextChange = (e) => {
     const inputText = e.target.value;
@@ -37,27 +38,26 @@ const CreatePosts = () => {
       const truncatedText = inputText.slice(0, MAX_CHAR);
       setPostText(truncatedText);
       setRemainingChar(0);
-    }else{
-        setPostText(inputText)
-        setRemainingChar(MAX_CHAR - inputText.length)
+    } else {
+      setPostText(inputText);
+      setRemainingChar(MAX_CHAR - inputText.length);
     }
   };
 
   const handleCreatePost = async () => {
-    setLoading(true)
+    setLoading(true);
     try {
-        const res = await fetch ("/api/posts/create", {
-            method: "POST",
-            headers: {"Content_Type": "application/json"
-        },
+      const res = await fetch("/api/posts/create", {
+        method: "POST",
+        headers: { Content_Type: "application/json" },
 
-        body
-    
-        })
-        
-    } catch (error) {
-        
-    }
+        body: JSON.stringify({
+          postedBy: user._id,
+          text: postText,
+          img: imgUrl,
+        }),
+      });
+    } catch (error) {}
   };
 
   return (
