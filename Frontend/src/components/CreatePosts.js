@@ -23,7 +23,9 @@ const CreatePosts = () => {
                 onChange={handleTextChange}
                 value={postText}
                 />
-                
+                <Text>
+                    500/500
+                </Text>
             </FormControl>
           </ModalBody>
  
