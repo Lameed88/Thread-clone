@@ -9,7 +9,7 @@ const CreatePosts = () => {
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const [postText, setPostText] = useState("")
-    const {handleImageChange, imgUrl} = usePreviewImg
+    const {handleImageChange, imgUrl} = usePreviewImg()
 
     const handleTextChange = () => {
 
