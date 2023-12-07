@@ -1,7 +1,11 @@
 import { AddIcon } from "@chakra-ui/icons";
 import {
   Button,
+  CloseButton,
+  Flex,
   FormControl,
+  Image,
+  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -9,68 +13,79 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Text,
   Textarea,
   useDisclosure,
-  Text,
-  Input,
-  Flex,
-  CloseButton,
-  Image,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
-import usePreviewImg from "../hooks/usePreviewImg";
+import usePreviwImg from "../hooks/usePreviewImg";
 import { BsFillImageFill } from "react-icons/bs";
-import userAtom from "../atoms/userAtom";
 import { useRecoilValue } from "recoil";
+import userAtom from "../atoms/userAtom";
 import useShowToast from "../hooks/useShowToast";
+import { useParams } from "react-router-dom";
+import postAtom from "../atoms/postAtom";
 
 const MAX_CHAR = 500;
 
-const CreatePosts = () => {
+const CreatePost = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [postText, setPostText] = useState("");
-  const { handleImageChange, imgUrl, setImgUrl } = usePreviewImg();
-  const imageRef = useRef(null);
-  const [remainingChar, setRemainingChar] = useState(MAX_CHAR);
+  const { handleImageChange, imgUrl, setImgUrl } = usePreviwImg();
   const [loading, setLoading] = useState(false);
   const user = useRecoilValue(userAtom);
+  const imageRef = useRef(null);
+  const showToast = useShowToast()
+  const username = useParams()
+  const [posts, setPosts] = useRecoilValue(postAtom)
 
+  const [remainingChar, setremainingChar] = useState(MAX_CHAR);
   const handleTextChange = (e) => {
     const inputText = e.target.value;
     if (inputText.length > MAX_CHAR) {
-      const truncatedText = inputText.slice(0, MAX_CHAR);
+      const truncatedText = inputText.style(0, MAX_CHAR);
       setPostText(truncatedText);
-      setRemainingChar(0);
+      setremainingChar(0);
     } else {
       setPostText(inputText);
-      setRemainingChar(MAX_CHAR - inputText.length);
+      setremainingChar(MAX_CHAR - inputText.length);
     }
   };
-
   const handleCreatePost = async () => {
     setLoading(true);
     try {
-      const res = await fetch("/api/posts/create", {
+      const res = await fetch ("/api/posts/create", {
         method: "POST",
-        headers: { Content_Type: "application/json" },
-
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           postedBy: user._id,
           text: postText,
           img: imgUrl,
         }),
       });
-
-      const data = await res.json()
-      if (data.error){
-        useShowToast("Error", data.error, "error")
-        return
+      const data = await res.json();
+      if (data.error) {
+        showToast("Error", data.error, "error");
+        return;
       }
-    } catch (error) {
+      showToast("Success", "post created sucessfully", "success");
+      console.log(data);
 
+      if (username === user.username) {
+        setPosts({ data, ...posts });
+      }
+      onClose();
+      setPostText("")
+
+
+    } catch (error) {
+        showToast("Error", error, "error");
+    }finally{
+       setLoading(false)
     }
   };
-
   return (
     <>
       <Button
@@ -83,23 +98,24 @@ const CreatePosts = () => {
       >
         Post
       </Button>
+
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader>Create Post</ModalHeader>
           <ModalCloseButton />
-          <ModalBody p={6}>
+          <ModalBody padding={6}>
             <FormControl>
               <Textarea
-                placeholder="Post Content Goes Here"
+                placeholder="post Content goes here"
                 onChange={handleTextChange}
                 value={postText}
               />
               <Text
-                fontSize={"xs"}
-                fw={"bold"}
+                fontSize="xs"
+                fontWeight="bold"
                 textAlign={"right"}
-                m={1}
+                margin={1}
                 color={"gray.800"}
               >
                 {remainingChar}/{MAX_CHAR}
@@ -117,18 +133,15 @@ const CreatePosts = () => {
                 onClick={() => imageRef.current.click()}
               />
             </FormControl>
-
             {imgUrl && (
               <Flex mt={"full"} position={"relative"}>
-                <Image src={imgUrl} alt="select img" />
+                <Image src={imgUrl} alt="select image" />
                 <CloseButton
-                  onClick={() => {
-                    setImgUrl("");
-                  }}
-                  bg={"gray.800"}
-                  position={"absolute"}
-                  top={2}
+                  onClick={() => setImgUrl("")}
                   right={2}
+                  top={2}
+                  pos={"absolute"}
+                  bg={"gray.800"}
                 />
               </Flex>
             )}
@@ -150,4 +163,4 @@ const CreatePosts = () => {
   );
 };
 
-export default CreatePosts;
+export default CreatePost;
