@@ -52,6 +52,8 @@ const HomePage = () => {
 </Stack>
       </Flex>
     )}
+
+    {posts.map(post => <Posts /> )}
     </>
   )
 }
