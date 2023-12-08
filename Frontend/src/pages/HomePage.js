@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import useShowToast from '../hooks/useShowToast'
 
 const HomePage = () => {
+  const [post, setPost] = useState([])
   const showToast = useShowToast()
   const [loading, setLoading] = useState(true)
 
