@@ -18,8 +18,17 @@ const Post = ({ post, postedBy }) => {
             const res = await fetch(`/api/users/profile/${postedBy}`)
             const data = await res.json()
             console.log(data);
+            setUser(data)
+            if(data.error){
+                showToast("Error", data.error, "error")
+                return
+            }
+
+
         } catch (error) {
             showToast("Error", error.message, "error")
+        }finally{
+            setUser(null)
         }
     }
     getUser()
