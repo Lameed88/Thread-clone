@@ -149,7 +149,7 @@ const getFeedPost = async (req, res) => {
       createdAt: -1,
     });
 
-    res.status(200).json({ feedPosts });
+    res.status(200).json( feedPosts );
   } catch (error) {
     res.status(500).json({ message: error.message }); // internal server error
     console.log("Error in Get feed Post : ", error.message);

@@ -63,6 +63,8 @@ export default function SignupCard() {
 
     } catch (error) {
       showToast("Error", error, "error");
+    }finally{
+      setLoading(false)
     }
   }; 
         
