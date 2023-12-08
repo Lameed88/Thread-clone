@@ -101,7 +101,7 @@ const Post = ({ post, postedBy }) => {
             </Flex>
 
             <Flex alignItems={"center"} gap={4} onClick={(e) => e.preventDefault()}>
-              <Text>1day</Text>
+              <Text>{formatDistanceToNow(new Date(post.createdAt))} ago</Text>
               {/* <Menu>
                                 <MenuButton>
                                     <BsThreeDots cursor={'pointer'}  />
