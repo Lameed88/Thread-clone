@@ -118,7 +118,7 @@ export default function SignupCard() {
                 isLoading={loading}
               >
               {/* {!loading ? "Login" : "Login in..."} */}
-
+              Login
               </Button>
             </Stack>
             <Stack pt={6}>
