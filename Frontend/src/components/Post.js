@@ -44,16 +44,18 @@ const Post = ({ post, postedBy }) => {
           <Avatar src={user.profilePic}name={`${user.username} ${user.name}`} size={"md"} />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2}></Box>
           <Box position={"relative"} w={"full"}>
-            {user.}
-            <Avatar
-              src="/post1.png"
-              name="Mark Zuckerberg"
-              size={"xs"}
-              position={"absolute"}
-              top={0}
-              left={"15px"}
-              padding={"2px"}
-            />
+            {post.replies[0] && (
+
+                <Avatar
+                src={post.replies[0].userProfilePic}
+                name="Mark Zuckerberg"
+                size={"xs"}
+                position={"absolute"}
+                top={0}
+                left={"15px"}
+                padding={"2px"}
+                />
+                )}
             <Avatar
               src="/post1.png"
               name="Bell shmurda"
