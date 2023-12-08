@@ -11,7 +11,7 @@ const HomePage = () => {
   useEffect(() => {
     const getFeedPosts = async () =>{
       try {
-        const res = await fetch("/api/posts/feed")
+        const res = await fetch("/api/posts/fed")
         const data = await res.json()
         console.log(data);
         if(data.error) {
