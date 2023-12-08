@@ -4,6 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import Actions from "./Actions";
 import { useEffect, useState } from "react";
 import useShowToast from "../hooks/useShowToast";
+import {formatDistanceToNow} from 'date-fns'
 
 const Post = ({ post, postedBy }) => {
   const [liked, setLiked] = useState(false);
