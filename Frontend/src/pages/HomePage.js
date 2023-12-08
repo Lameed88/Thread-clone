@@ -21,7 +21,7 @@ const HomePage = () => {
       }
     }
 
-    
+    getFeedPosts()
   }, [showToast])
 
 
