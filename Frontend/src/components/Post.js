@@ -3,11 +3,21 @@ import { BsThreeDots } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import Actions from "./Actions";
 import { useEffect, useState } from "react";
+import useShowToast from "../hooks/useShowToast";
 
 const Post = ({ post, postedBy }) => {
   const [liked, setLiked] = useState(false);
+  const showToast= useShowToast()
   
   useEffect(() => {
+    const getUser = async () => {
+        try {
+            const res = await fetch(`/api/users/profile/${postedBy}`)
+            const data = await res.json()
+        } catch (error) {
+            showToast("Error", error.message, "error")
+        }
+    }
 
   })
 
