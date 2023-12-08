@@ -12,6 +12,8 @@ const HomePage = () => {
     const getFeedPosts = async () =>{
       try {
         const res = await fetch("/api/posts/feed")
+        const data = await res.json()
+        console.log(data);
       } catch (error) {
         console.log(error);
         showToast("Error", error.message, "error")
