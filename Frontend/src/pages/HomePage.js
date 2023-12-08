@@ -18,6 +18,7 @@ const HomePage = () => {
           showToast("Error", data.error, "error")
           return
         }
+        console.log(data);
 
 
       } catch (error) {
