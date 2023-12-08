@@ -1,8 +1,30 @@
 import { Button, Flex } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import useShowToast from '../hooks/useShowToast'
 
 const HomePage = () => {
+  const showToast = useShowToast()
+  const [loading, setLoading] = useState(true)
+
+
+  useEffect(() => {
+    const getFeedPosts = async () =>{
+      try {
+        const res = await fetch("/api/posts/feed")
+      } catch (error) {
+        console.log(error);
+        showToast("Error", error.message, "error")
+        
+      }finally{
+        setLoading(false)
+      }
+    }
+
+    
+  }, [showToast])
+
+
   return (
     <div>
         <Link to={"/markzuckerberg"}>
