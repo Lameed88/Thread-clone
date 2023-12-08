@@ -53,7 +53,7 @@ const HomePage = () => {
       </Flex>
     )}
 
-    {posts.map(post => < Posts /> )}
+    {posts.map(post => < Post /> )}
     </>
   )
 }
