@@ -19,7 +19,7 @@ const Post = ({ post, postedBy }) => {
         }
     }
 
-  })
+  }, [postedBy])
 
   return (
     <Link to={"/aliumusa/post/1"}>
