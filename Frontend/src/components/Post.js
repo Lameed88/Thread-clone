@@ -56,8 +56,9 @@ const Post = ({ post, postedBy }) => {
                 padding={"2px"}
                 />
                 )}
+                 {post.replies[1] && (
             <Avatar
-                src={post.replies[0].userProfilePic}
+                src={post.replies[1].userProfilePic}
                 name="Bell shmurda"
               size={"xs"}
               position={"absolute"}
@@ -65,8 +66,10 @@ const Post = ({ post, postedBy }) => {
               right={"-5px"}
               padding={"2px"}
             />
+            )}
+             {post.replies[2] && (
             <Avatar
-                src={post.replies[0].userProfilePic}
+                src={post.replies[2].userProfilePic}
                 name="Danfo driver"
               size={"xs"}
               position={"absolute"}
@@ -74,6 +77,7 @@ const Post = ({ post, postedBy }) => {
               left={"4px"}
               padding={"2px"}
             />
+             )}
           </Box>
         </Flex>
         <Flex flex={1} flexDir={"column"} gap={2}>
