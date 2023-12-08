@@ -26,6 +26,7 @@ import userAtom from "../atoms/userAtom";
 
 
 export default function SignupCard() {
+  const [loading, setLoading]= useState(false)
   const [showPassword, setShowPassword] = useState(false);
   const setAuthScreen = useSetRecoilState(authScreenAtom);
   const setUser = useSetRecoilState(userAtom)
@@ -38,6 +39,8 @@ export default function SignupCard() {
   const showToast = useShowToast()
 
   const handleLogin = async () => {
+    setLoading(true)
+
     try {
    
       const res = await fetch("/api/users/login", {
@@ -113,7 +116,8 @@ export default function SignupCard() {
                 }}
                 onClick={handleLogin}
               >
-                Login
+              {/* {!loading ? "Login" : "Login in..."} */}
+              
               </Button>
             </Stack>
             <Stack pt={6}>
