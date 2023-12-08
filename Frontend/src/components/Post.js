@@ -7,6 +7,9 @@ import useShowToast from "../hooks/useShowToast";
 
 const Post = ({ post, postedBy }) => {
   const [liked, setLiked] = useState(false);
+  const [user, setUser] = useState(null)
+
+
   const showToast= useShowToast()
   
   useEffect(() => {
