@@ -36,13 +36,9 @@ const HomePage = () => {
 
 
   return (
-    <div>
-        <Link to={"/markzuckerberg"}>
-            <Flex w={"full"} justifyContent={"center"}>
-            <Button mx={"auto"}> Click me. (Enter)</Button>
-            </Flex>
-        </Link>
-    </div>
+    <>
+    
+    </>
   )
 }
  
