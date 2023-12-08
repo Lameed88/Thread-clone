@@ -57,8 +57,8 @@ const Post = ({ post, postedBy }) => {
                 />
                 )}
             <Avatar
-              src="/post1.png"
-              name="Bell shmurda"
+                src={post.replies[0].userProfilePic}
+                name="Bell shmurda"
               size={"xs"}
               position={"absolute"}
               bottom={0}
@@ -66,8 +66,8 @@ const Post = ({ post, postedBy }) => {
               padding={"2px"}
             />
             <Avatar
-              src="/post1.png"
-              name="Danfo driver"
+                src={post.replies[0].userProfilePic}
+                name="Danfo driver"
               size={"xs"}
               position={"absolute"}
               bottom={0}
