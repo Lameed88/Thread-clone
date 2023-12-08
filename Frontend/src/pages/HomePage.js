@@ -37,9 +37,10 @@ const HomePage = () => {
 
   return (
     <>
+    
     {loading && (
       <Flex justifyContent={'center'}>
-        <Spinner size={"xl"} />
+        <Spinner size={"xl"} color='red'/>
       </Flex>
     )}
     </>
