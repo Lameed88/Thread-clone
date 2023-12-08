@@ -14,10 +14,12 @@ const Post = ({ post, postedBy }) => {
         try {
             const res = await fetch(`/api/users/profile/${postedBy}`)
             const data = await res.json()
+            console.log(data);
         } catch (error) {
             showToast("Error", error.message, "error")
         }
     }
+    getUser()
 
   }, [postedBy])
 
