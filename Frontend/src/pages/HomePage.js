@@ -1,4 +1,4 @@
-import { Button, Flex } from '@chakra-ui/react'
+import { Button, Flex, Spinner } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import useShowToast from '../hooks/useShowToast'
@@ -37,7 +37,11 @@ const HomePage = () => {
 
   return (
     <>
-    
+    {loading && (
+      <Flex justifyContent={'center'}>
+        <Spinner size={"xl"} />
+      </Flex>
+    )}
     </>
   )
 }
