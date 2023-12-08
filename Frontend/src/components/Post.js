@@ -1,6 +1,6 @@
 import { Avatar, Flex, Box, Image, Text, MenuList, MenuItem, MenuButton, Menu, MenuGroup, MenuDivider } from "@chakra-ui/react";
 import { BsThreeDots } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import Actions from "./Actions";
 import { useEffect, useState } from "react";
 import useShowToast from "../hooks/useShowToast";
@@ -9,7 +9,7 @@ const Post = ({ post, postedBy }) => {
   const [liked, setLiked] = useState(false);
   const [user, setUser] = useState(null)
 
-
+  const navigate= useNavigate
   const showToast= useShowToast()
   
   useEffect(() => {
@@ -38,10 +38,16 @@ const Post = ({ post, postedBy }) => {
   if (!user) return null
 
   return (
-    <Link to={"/aliumusa/post/1"}>
+    <Link to={`/${user.username}/post/${post._id}`}>
       <Flex gap={3} mb={4} py={5}>
         <Flex flexDir={"column"} alignItems={"center"}>
-          <Avatar src={user.profilePic}name={`${user.username} ${user.name}`} size={"md"} />
+
+          <Avatar src={user.profilePic}name={`${user.username} ${user.name}`} size={"md"} 
+            onClick={(e) =>{
+                e.preventDefault()
+                navigate (`/${user.username}`)
+            }}
+          />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2}></Box>
           <Box position={"relative"} w={"full"}>
             {post.replies.length === 0 && <Text justifyContent={"center"}>😒🤷‍♂️🫶</Text>}
@@ -66,6 +72,11 @@ const Post = ({ post, postedBy }) => {
               bottom={0}
               right={"-5px"}
               padding={"2px"}
+              onClick={(e) => {
+               e.preventDefault()
+               navigate (`/${user.username}`)
+              }}
+
             />
             )}
              {post.replies[2] && (
