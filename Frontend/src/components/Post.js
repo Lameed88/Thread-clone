@@ -44,6 +44,7 @@ const Post = ({ post, postedBy }) => {
           <Avatar src={user.profilePic}name={`${user.username} ${user.name}`} size={"md"} />
           <Box w={"1px"} h={"full"} bg={"gray.light"} my={2}></Box>
           <Box position={"relative"} w={"full"}>
+            {post.replies.length === 0 && <Text justifyContent={"center"}>😒🤷‍♂️🫶</Text>}
             {post.replies[0] && (
 
                 <Avatar
