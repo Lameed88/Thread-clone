@@ -31,6 +31,7 @@ const Reactions = ({ post: post_ }) => {
           "Content-Type": "application/json",
         },
       });
+
       const data = await res.json();
 
       if (!liked) {
@@ -70,7 +71,7 @@ const Reactions = ({ post: post_ }) => {
 
       });
       const data = await res.jsoon()
-      
+
     } catch (error) {
       showToast("Error", error.message, "error");
     }
