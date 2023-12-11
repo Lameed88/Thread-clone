@@ -72,6 +72,8 @@ const Reactions = ({ post: post_ }) => {
       });
       const data = await res.jsoon()
 
+      setPost({...post, replies: [...post.replies, data] })
+
     } catch (error) {
       showToast("Error", error.message, "error");
     }
