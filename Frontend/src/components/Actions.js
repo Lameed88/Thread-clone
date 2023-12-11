@@ -13,7 +13,7 @@ const Actions = ({ post: post_ }) => {
 
   const handleLikeAndUnlike = async () => {
     if (!user)
-      return useShowToast(
+     return showToast(
         "Error",
         "You must be logged in to like a post",
         "error"
