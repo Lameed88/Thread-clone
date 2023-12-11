@@ -1,4 +1,4 @@
-import { Box, Button, Flex, FormControl, FormLabel, Input, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, Modal, initialRef } from "@chakra-ui/react";
+import { Box, Button, Flex, FormControl, FormLabel, Input, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, Modal, initialRef, useDisclosure } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { useState } from "react";
@@ -13,6 +13,7 @@ const Reactions = ({ post: post_ }) => {
   const [isReplying, setIsReplying] = useState(false);
   const showToast = useShowToast();
 
+  const { isOpen, onOpen, onClose} = useDisclosure()
   const handleLikeAndUnlike = async () => {
     if (!user)
       return showToast(
@@ -112,15 +113,16 @@ const Reactions = ({ post: post_ }) => {
         </svg>
 
         <svg
-          aria-label="Reply"
+          aria-label="Comment"
           className="x1lliihq x1n2onr6 x1yxark7"
           fill="currentColor"
           height="20"
           role="img"
           viewBox="0 0 24 24"
           width="20"
+          onClick={onOpen}
         >
-          <title>Reply</title>
+          <title>Comment</title>
           <path
             d="M20.656 17.008a9.993 9.993 0 1 0-3.59 3.615L22 22Z"
             fill="none"
@@ -150,7 +152,8 @@ const Reactions = ({ post: post_ }) => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <Input placeholder='Reply goes here...' />
+              <Input placeholder='Reply goes here...' value={reply} onChange={(e) => setReply(e.target.value)} 
+              />
             </FormControl>
 
            
@@ -158,7 +161,7 @@ const Reactions = ({ post: post_ }) => {
 
           <ModalFooter>
             <Button colorScheme='blue' mr={3}>
-            Reply
+            size={"sm"}
             </Button>
           </ModalFooter>
         </ModalContent>
