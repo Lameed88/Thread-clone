@@ -48,29 +48,35 @@ const Reactions = ({ post: post_ }) => {
     }
   };
 
-  const handleReply = async() => {
+  const handleReply = async () => {
     if (!user)
       return showToast(
         "Error",
         "you must be logged in to reply a post",
         "error"
-      );  
+      );
 
-      if (isReplying) return 
-      setIsReplying(true)
+    if (isReplying) return;
+    setIsReplying(true);
 
-      try {
-        const res = await fetch("/api/posts/reply/" + post ._id,{
+    try {
+      const res = await fetch("/api/posts/reply/" + post._id, {
+        method: "PUT",
+        headers: { 
+          "Content-Type": "application/json"
+       },
 
-        })
-      } catch (error) {
-        showToast("Error", error.message, "error")
-      }
+       body: JSON
+
+      });
+    } catch (error) {
+      showToast("Error", error.message, "error");
+    }
   };
 
   return (
     <Flex flexDirection="column">
-      <Flex 
+      <Flex
         cursor={"pointer"}
         gap={3}
         my={2}
