@@ -8,9 +8,9 @@ const Reactions = ({ post: post_ }) => {
   const user = useRecoilValue(userAtom);
   const [post, setPost] = useState(post_);
   const [liked, setLiked] = useState(post.likes.includes(user?._id));
-  const [ isLiking, setIsLiking ] = useState(false);
-  const [ reply, setReply ] = useState("");
-  const [ isReplying, setIsReplying ] = useState(false);
+  const [isLiking, setIsLiking] = useState(false);
+  const [reply, setReply] = useState("");
+  const [isReplying, setIsReplying] = useState(false);
   const showToast = useShowToast();
 
   const handleLikeAndUnlike = async () => {
@@ -21,8 +21,8 @@ const Reactions = ({ post: post_ }) => {
         "error"
       );
 
-      if(isLiking) return;
-      setIsLiking(true)
+    if (isLiking) return;
+    setIsLiking(true);
 
     try {
       const res = await fetch("/api/posts/like/" + post._id, {
@@ -44,8 +44,17 @@ const Reactions = ({ post: post_ }) => {
     } catch (error) {
       showToast("Error", error.message, "error");
     } finally {
-      setIsLiking(false)
+      setIsLiking(false);
     }
+  };
+
+  const handleReply = () => {
+    if (!user)
+      return showToast(
+        "Error",
+        "you must be logged in to reply a post",
+        "error"
+      );
   };
 
   return (
@@ -128,33 +137,33 @@ const RepostSVG = () => {
 
 const ShareSVG = () => {
   return (
-        <svg
-          aria-label="Share"
-          className="x1lliihq x1n2onr6 x1yxark7"
-          fill="currentColor"
-          height="20"
-          role="img"
-          viewBox="0 0 24 24"
-          width="20"
-        >
-          <title>Share</title>
-          <line
-            fill="none"
-            stroke="currentColor"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            x1="22"
-            x2="9.218"
-            y1="3"
-            y2="10.083"
-          ></line>
-          <polygon
-            fill="none"
-            points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
-            stroke="currentColor"
-            strokeLinejoin="round"
-            strokeWidth="2"
-          ></polygon>
-        </svg>
-  )
+    <svg
+      aria-label="Share"
+      className="x1lliihq x1n2onr6 x1yxark7"
+      fill="currentColor"
+      height="20"
+      role="img"
+      viewBox="0 0 24 24"
+      width="20"
+    >
+      <title>Share</title>
+      <line
+        fill="none"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="2"
+        x1="22"
+        x2="9.218"
+        y1="3"
+        y2="10.083"
+      ></line>
+      <polygon
+        fill="none"
+        points="11.698 20.334 22 3.001 2 3.001 9.218 10.084 11.698 20.334"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      ></polygon>
+    </svg>
+  );
 };
