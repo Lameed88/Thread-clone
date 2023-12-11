@@ -162,6 +162,8 @@ const Reactions = ({ post: post_ }) => {
           <ModalFooter>
             <Button colorScheme='blue' mr={3}>
             size={"sm"}
+            isloading={isReplying}
+            onClick={handleReply}
             </Button>
           </ModalFooter>
         </ModalContent>
