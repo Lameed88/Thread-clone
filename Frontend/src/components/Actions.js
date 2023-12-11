@@ -66,9 +66,11 @@ const Reactions = ({ post: post_ }) => {
           "Content-Type": "application/json"
        },
 
-       body: JSON
+       body: JSON.stringify({ text: reply})
 
       });
+      const data = await res.jsoon()
+      
     } catch (error) {
       showToast("Error", error.message, "error");
     }
