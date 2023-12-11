@@ -60,7 +60,9 @@ const Reactions = ({ post: post_ }) => {
       setIsReplying(true)
 
       try {
-        const res
+        const res = await fetch("/api/posts/reply/" + post ._id,{
+          
+        })
       } catch (error) {
         showToast("Error", error.message, "error")
       }
