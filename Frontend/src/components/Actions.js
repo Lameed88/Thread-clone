@@ -54,7 +54,7 @@ const Reactions = ({ post: post_ }) => {
         "Error",
         "you must be logged in to reply a post",
         "error"
-      );
+      ); 
 
       if (isReplying) return 
       setIsReplying(true)
