@@ -10,6 +10,8 @@ const UserPage = () => {
   const { username } = useParams();
   const showToast = useShowToast();
   const [loading, setLoading] = useState(true);
+  const [posts, setPosts] = useState([])
+  const [fetcchingPosts, setFetchingPosts] = useState(false)
 
   useEffect(() => {
     const getUser = async () => {
@@ -31,11 +33,20 @@ const UserPage = () => {
     };
 
     const getPosts = async () =>{
+      setFetchingPosts(true)
 
+      try {
+        const res = await fetch(`api/posts/user/${username}`)
+        const data = await res.json()
+        console.log(data);
+        setPosts(data)
+      } catch (error) {
+        showToast("Error", error.message, "error")
+      }
     }
-
-    
     getUser();
+    getPosts()
+    
   }, [username, showToast]);
 
   if (!user && loading) {
