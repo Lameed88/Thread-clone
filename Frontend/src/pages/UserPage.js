@@ -36,17 +36,19 @@ const UserPage = () => {
       setFetchingPosts(true)
 
       try {
-        const res = await fetch(`api/posts/user/${username}`)
+        const res = await fetch(`/api/posts/user/${username}`)
         const data = await res.json()
         console.log(data);
         setPosts(data)
       } catch (error) {
         showToast("Error", error.message, "error")
+      } finally {
+        setFetchingPosts(false)
       }
     }
     getUser();
     getPosts()
-    
+
   }, [username, showToast]);
 
   if (!user && loading) {
@@ -60,8 +62,8 @@ const UserPage = () => {
 
   return (
     <>
-      {/* <UserHeader user={user} />
-      <UserPosts
+      <UserHeader user={user} />
+      {/* <UserPosts
         userAvatar={"https://bit.ly/tioluwani-kolawole"}
         likes={200}
         replies={50}
