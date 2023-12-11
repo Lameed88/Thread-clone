@@ -141,11 +141,10 @@ const Reactions = ({ post: post_ }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create your account</ModalHeader>
+          <ModalHeader></ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-            
               <Input placeholder='Reply goes here...' />
             </FormControl>
 
