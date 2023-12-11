@@ -79,6 +79,8 @@ const Reactions = ({ post: post_ }) => {
 
     } catch (error) {
       showToast("Error", error.message, "error");
+    }finally{
+      setIsReplying(false)
     }
   };
 
