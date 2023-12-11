@@ -23,7 +23,7 @@ const Actions = ({ post: post_ }) => {
         }
       })
       const data = await res.json()
-      console.log(data);
+      console.log(data); 
       
     } catch (error) {
       showToast("Error", error.message, "error")
