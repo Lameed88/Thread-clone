@@ -50,7 +50,7 @@ const Actions = ({ post: post_ }) => {
           role="img"
           viewBox="0 0 20 20"
           width="20"
-          onClick={() => setLiked(!liked)}
+          onClick={handleLikeAndUnlike}
         >
           <title>Like</title>
           <path
