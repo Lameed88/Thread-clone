@@ -157,8 +157,8 @@ const Post = ({ post, postedBy }) => {
             <Image src={post.img}  w={"full"}/>
           </Box>
           )}
-          <Flex>
-            <Actions liked={liked} setLiked={setLiked} />
+          <Flex gap={3} my={1}>
+            <Actions post={post} />
           </Flex>
           <Flex
             gap={2}

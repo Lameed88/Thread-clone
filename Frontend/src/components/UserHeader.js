@@ -14,10 +14,11 @@ import useShowToast from "../hooks/useShowToast";
 const UserHeader = ({ user }) => {
   const toast = useToast();
   const currentUser = useRecoilValue(userAtom);
-  const [following, setFolllowing] = useState(user.followers.includes(currentUser._id))
-  const showToast = useShowToast()
-  const [updating, setUpdating] = useState(false)
-
+  const [following, setFolllowing] = useState(
+    user.followers.includes(currentUser._id)
+  );
+  const showToast = useShowToast();
+  const [updating, setUpdating] = useState(false);
 
   const copyURL = () => {
     const currentURL = window.location.href;
@@ -32,51 +33,45 @@ const UserHeader = ({ user }) => {
     });
   };
 
-  const handleFollowUnfollow = async () =>{
+  const handleFollowUnfollow = async () => {
     if (!currentUser) {
-      showToast("Error", "please login to follow", "error")
-      return
+      showToast("Error", "please login to follow", "error");
+      return;
     }
 
-    if(updating) return
-    setUpdating(true)
+    if (updating) return;
+    setUpdating(true);
 
     try {
       const res = await fetch(`/api/users/follow/${user._id}`, {
-
         method: "POST",
-        headers:{
-          "Content-Type": "application/json"
-        }
-      })
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-      const data = await res.json()
+      const data = await res.json();
 
-      if (data.error){
-        showToast("Error", data.error, "Error")
-        return
+      if (data.error) {
+        showToast("Error", data.error, "Error");
+        return;
       }
-      if (following){
-        showToast("Success", `Unfollowed ${user.name}`, "success")
-        user.followers.pop()
-        
-      }else {
-        showToast("Success", `Followed ${user.name}`, "success")
-        user.followers.push(currentUser._id)
-
+      if (following) {
+        showToast("Success", `Unfollowed ${user.name}`, "success");
+        user.followers.pop();
+      } else {
+        showToast("Success", `Followed ${user.name}`, "success");
+        user.followers.push(currentUser._id);
       }
 
-        setFolllowing(!following)
+      setFolllowing(!following);
       console.log(data);
-
     } catch (error) {
-      showToast("Error", error, "error")
-    }finally {
-      setUpdating(false)
+      showToast("Error", error, "error");
+    } finally {
+      setUpdating(false);
     }
-
-  }
-
+  };
 
   return (
     <VStack gap={4} alignItems={"start"}>
@@ -124,8 +119,11 @@ const UserHeader = ({ user }) => {
       )}
 
       {currentUser._id !== user._id && (
-        <Link as={RouterLink} >
-          <Button onClick={handleFollowUnfollow} isLoading={updating} > {following ? "unfollow" : "follow"} </Button>
+        <Link as={RouterLink}>
+          <Button onClick={handleFollowUnfollow} isLoading={updating}>
+            {" "}
+            {following ? "unfollow" : "follow"}{" "}
+          </Button>
         </Link>
       )}
 
