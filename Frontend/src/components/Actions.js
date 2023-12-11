@@ -146,7 +146,7 @@ const Reactions = ({ post: post_ }) => {
           <ModalBody pb={6}>
             <FormControl>
               <FormLabel>First name</FormLabel>
-              <Input ref={initialRef} placeholder='First name' />
+              <Input placeholder='Reply goes here...' />
             </FormControl>
 
            
@@ -154,7 +154,7 @@ const Reactions = ({ post: post_ }) => {
 
           <ModalFooter>
             <Button colorScheme='blue' mr={3}>
-              Save
+            Reply
             </Button>
           </ModalFooter>
         </ModalContent>
