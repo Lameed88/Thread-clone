@@ -63,6 +63,13 @@ const UserPage = () => {
   return (
     <>
       <UserHeader user={user} />
+      {!fetcchingPosts && posts.length === 0 && <h1>User has no posts</h1>}
+      {fetcchingPosts && 
+      (<Flex justifyContent={"center"} my={12}>
+        <Spinner size={"xl"}/>
+      </Flex>
+      )
+      }
       {/* <UserPosts
         userAvatar={"https://bit.ly/tioluwani-kolawole"}
         likes={200}
