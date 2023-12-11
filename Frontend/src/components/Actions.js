@@ -60,7 +60,7 @@ const Reactions = ({ post: post_ }) => {
       setIsReplying(true)
 
       try {
-        
+        const res
       } catch (error) {
         showToast("Error", error.message, "error")
       }
