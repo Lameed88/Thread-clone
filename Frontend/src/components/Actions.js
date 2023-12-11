@@ -1,4 +1,21 @@
-import { Box, Button, Flex, FormControl, FormLabel, Input, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, Modal, initialRef, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormLabel,
+  Input,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  Text,
+  Modal,
+  initialRef,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { useState } from "react";
@@ -13,7 +30,7 @@ const Reactions = ({ post: post_ }) => {
   const [isReplying, setIsReplying] = useState(false);
   const showToast = useShowToast();
 
-  const { isOpen, onOpen, onClose} = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const handleLikeAndUnlike = async () => {
     if (!user)
       return showToast(
@@ -64,24 +81,22 @@ const Reactions = ({ post: post_ }) => {
     try {
       const res = await fetch("/api/posts/reply/" + post._id, {
         method: "PUT",
-        headers: { 
-          "Content-Type": "application/json"
-       },
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-       body: JSON.stringify({ text: reply})
-
+        body: JSON.stringify({ text: reply }),
       });
-      const data = await res.jsoon()
+      const data = await res.json();
 
-      setPost({...post, replies: [...post.replies, data] })
-      showToast("Success", "reply posted successfully", "success")
-      onClose()
-      setReply("")
-
+      setPost({ ...post, replies: [...post.replies, data] });
+      showToast("Success", "reply posted successfully", "success");
+      onClose();
+      setReply("");
     } catch (error) {
       showToast("Error", error.message, "error");
-    }finally{
-      setIsReplying(false)
+    } finally {
+      setIsReplying(false);
     }
   };
 
@@ -141,29 +156,29 @@ const Reactions = ({ post: post_ }) => {
         <Box w={0.5} h={0.5} bg={"gray.light"} borderRadius={"full"}></Box>
         <Text>{post.likes.length} likes</Text>
       </Flex>
-      <Modal
-     
-        isOpen={isOpen}
-        onClose={onClose}
-      >
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
           <ModalHeader></ModalHeader>
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <Input placeholder='Reply goes here...' value={reply} onChange={(e) => setReply(e.target.value)} 
+              <Input
+                placeholder="Reply goes here..."
+                value={reply}
+                onChange={(e) => setReply(e.target.value)}
               />
             </FormControl>
-
-           
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' mr={3}>
-            size={"sm"}
-            isloading={isReplying}
-            onClick={handleReply}
+            <Button colorScheme="blue" mr={3}
+            
+              size={"sm"}
+              isloading={isReplying}
+              onClick={handleReply}
+            >
+              Reply
             </Button>
           </ModalFooter>
         </ModalContent>

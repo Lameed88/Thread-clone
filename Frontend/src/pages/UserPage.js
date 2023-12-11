@@ -29,6 +29,12 @@ const UserPage = () => {
         setLoading(false)
       }
     };
+
+    const getPosts = async () =>{
+
+    }
+
+    
     getUser();
   }, [username, showToast]);
 
@@ -43,7 +49,7 @@ const UserPage = () => {
 
   return (
     <>
-      <UserHeader user={user} />
+      {/* <UserHeader user={user} />
       <UserPosts
         userAvatar={"https://bit.ly/tioluwani-kolawole"}
         likes={200}
@@ -66,7 +72,7 @@ const UserPage = () => {
         replies={20}
         postImage={"/post2.png"}
         postTitle={"wow! awesome"}
-      />
+      /> */}
     </>
   );
 };
