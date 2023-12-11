@@ -61,7 +61,7 @@ const Reactions = ({ post: post_ }) => {
 
       try {
         const res = await fetch("/api/posts/reply/" + post ._id,{
-          
+
         })
       } catch (error) {
         showToast("Error", error.message, "error")
@@ -70,7 +70,7 @@ const Reactions = ({ post: post_ }) => {
 
   return (
     <Flex flexDirection="column">
-      <Flex
+      <Flex 
         cursor={"pointer"}
         gap={3}
         my={2}
