@@ -145,7 +145,7 @@ const Reactions = ({ post: post_ }) => {
           <ModalCloseButton />
           <ModalBody pb={6}>
             <FormControl>
-              <FormLabel>First name</FormLabel>
+            
               <Input placeholder='Reply goes here...' />
             </FormControl>
 
