@@ -50,6 +50,7 @@ const {pid} = useParams()
       </Flex>
     );
   }
+  if (!post) return null
 
   return (
     <>
@@ -80,24 +81,24 @@ const {pid} = useParams()
         </Flex>
       </Flex>
 
-      <Text my={3}>Hello My People !!!</Text>
+      <Text my={3}>{post.text}</Text>
       <Box
         overflow={"hidden"}
         borderRadius={6}
         border={"1px solid"}
         borderColor={"gray.light"}
       >
-        <Image src="/post1.png" w={"full"} />
+        <Image src={"/post1.png"} w={"full"} />
       </Box>
 
       <Flex>
-        {/* <Actions liked={liked} setLiked={setLiked} /> */}
+        <Actions post={post} />
       </Flex>
 
       <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
         <Text>250 Replies</Text>
         <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
-        <Text>20 + </Text>
+        <Text>{post.likes.length}</Text>
       </Flex>
 
       <Divider my={4} />
