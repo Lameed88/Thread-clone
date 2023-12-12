@@ -16,13 +16,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import useGetUserProfile from "../hooks/useGetUserProfile";
 import { formatDistanceToNow } from "date-fns";
 import { DeleteIcon } from "@chakra-ui/icons";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import Comments from "../components/Comments";
 
 const PostPage = () => {
   const { user, loading } = useGetUserProfile();
-  const [posts, setPosts] = 
+  const [posts, setPosts] = useRecoilState(postsAtom)
   const [post, setPost] = useState(null);
   const showToast = useShowToast();
   const { pid } = useParams();
