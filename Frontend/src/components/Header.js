@@ -39,8 +39,13 @@ const Header = () => {
         <Link as={RouterLink} to={`/${user.username}`}>
           <RxAvatar size={24}/>
         </Link>
+
+        <Button  onClick={handleLogout}>
+        <AiOutlineLogout size={20}/>
+    </Button>
+
         </Flex>
-        
+
       )}
  
     </Flex>
