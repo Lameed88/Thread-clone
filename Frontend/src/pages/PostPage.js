@@ -21,6 +21,7 @@ import userAtom from "../atoms/userAtom";
 import postsAtom from "../atoms/postAtom";
 import Comments from "../components/Comments";
 
+
 const PostPage = () => {
   const { user, loading } = useGetUserProfile();
   const [posts, setPosts] = useRecoilState(postsAtom)
@@ -29,6 +30,7 @@ const PostPage = () => {
   const { pid } = useParams();
   const currentUser = useRecoilValue(userAtom);
   const navigate = useNavigate();
+  const currentPost = posts[0]
 
   useEffect(() => {
     const getPosts = async () => {
@@ -52,7 +54,7 @@ const PostPage = () => {
     try {
       if (!window.confirm("Are you sure you want to delete this post?")) return;
 
-      const res = await fetch(`/api/posts/${post._id}`, {
+      const res = await fetch(`/api/posts/${currentPost._id}`, {
         method: "DELETE",
       });
 
