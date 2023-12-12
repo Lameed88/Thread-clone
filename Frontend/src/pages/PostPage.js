@@ -71,7 +71,7 @@ const PostPage = () => {
     }
   };
 
-  if (!currentPost && loading) {
+  if (!user && loading) {
     return (
       <Flex justifyContent={"center"}>
         <Spinner size={"xl"} />
@@ -127,7 +127,7 @@ const PostPage = () => {
           border={"1px solid"}
           borderColor={"gray.light"}
         >
-          <Image src={post.img} width={"full"} />
+          <Image src={currentPost.img} width={"full"} />
         </Box>
       )}
 
