@@ -90,8 +90,9 @@ const Actions = ({ post: post_ }) => {
 			if (data.error) showToast("Error", data.error, "error")
 			const updatedPosts = posts.map((p) => {
 		if(p._id === post._id) {
-			return{...p, replies: }
+			return{...p, replies: [...p.replies, data]}
 		}
+		return
 		})
 
 			setPost({ ...post, replies: [...post.replies, data] });
