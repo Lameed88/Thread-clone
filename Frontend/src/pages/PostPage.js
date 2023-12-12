@@ -132,7 +132,7 @@ const PostPage = () => {
       )}
 
       <Flex>
-        <Actions post={post} />
+        <Actions post={currentPost} />
       </Flex>
 
       <Divider my={4} />
@@ -147,7 +147,7 @@ const PostPage = () => {
 
       <Divider my={4} />
       <Divider my={4} />
-      {post.replies.map((reply) => (
+      {currentPost.replies.map((reply) => (
         <Comments key={reply._id} reply={reply} 
         lastReply = {reply._id === currentPost.replies[currentPost.replies.length -1]._id}
         />
