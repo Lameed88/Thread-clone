@@ -82,6 +82,7 @@ const {pid} = useParams()
       </Flex>
 
       <Text my={3}>{post.text}</Text>
+      
       <Box
         overflow={"hidden"}
         borderRadius={6}
