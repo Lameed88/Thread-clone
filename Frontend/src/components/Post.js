@@ -22,7 +22,7 @@ import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 
 const Post = ({ post, postedBy }) => {
-	const [liked, setLiked] = useState(false);
+	const [liked, setLiked, setPosts] = useState(false);
 	const [user, setUser] = useState(null);
 	const showToast = useShowToast();
 	const navigate = useNavigate();
