@@ -22,6 +22,7 @@ import Comments from "../components/Comments";
 
 const PostPage = () => {
   const { user, loading } = useGetUserProfile();
+  const [posts, setPosts] = 
   const [post, setPost] = useState(null);
   const showToast = useShowToast();
   const { pid } = useParams();
