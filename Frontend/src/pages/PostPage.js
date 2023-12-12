@@ -18,6 +18,7 @@ import { formatDistanceToNow } from "date-fns";
 import { DeleteIcon } from "@chakra-ui/icons";
 import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
+import postsAtom from "../atoms/postAtom";
 import Comments from "../components/Comments";
 
 const PostPage = () => {
@@ -38,14 +39,14 @@ const PostPage = () => {
           showToast("Error", data.error, "error");
           return;
         }
-        setPost(data);
         console.log(data);
+        setPosts([data]);
       } catch (error) {
         showToast("Error", error, "error");
       }
     };
     getPosts();
-  }, [showToast, pid]);
+  }, [showToast, pid, setPosts]);
 
   const handleDeletePost = async () => {
     try {
