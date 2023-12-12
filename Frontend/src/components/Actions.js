@@ -65,14 +65,13 @@ const Actions = ({ post: post_ }) => {
 	};
 
 	const handleReply = async () => {
-		if (!user) {
-			return showToast(
+		if (!user)return showToast(
 				"Error",
 				"You must be logged in to reply to a post",
 				"error"
-			);
-		}
-
+			
+		)
+		
 		if (isReplying) return;
 		setIsReplying(true);
 
