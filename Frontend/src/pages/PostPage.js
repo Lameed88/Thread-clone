@@ -71,7 +71,7 @@ const PostPage = () => {
     }
   };
 
-  if (!user && loading) {
+  if (!currentPost && loading) {
     return (
       <Flex justifyContent={"center"}>
         <Spinner size={"xl"} />
@@ -91,7 +91,7 @@ const PostPage = () => {
       >
         <Flex alignItems={"center"}>
           <Avatar src={user.profilePic} name={user.name} size={"md"} mr={2} />
-          <Text fontSize={"sm"}>{user.username}</Text>
+          <Text fontSize={"sm"}>{currentPost.username}</Text>
           <Image src="/verified.png" h={4} w={4} ml={2} />
         </Flex>
 
