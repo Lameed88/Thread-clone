@@ -5,7 +5,7 @@ import { AiFillHome } from "react-icons/ai"
 import {Link, Link as RouterLink} from "react-router-dom"
 import { useState } from "react";
 import {RxAvatar} from "react-icons/rx"
-import FiLogOut from "react-icons/fi"
+import {FiLogOut} from "react-icons/fi"
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
