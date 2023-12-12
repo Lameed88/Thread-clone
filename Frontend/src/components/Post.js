@@ -21,7 +21,7 @@ import { DeleteIcon } from "@chakra-ui/icons";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 
-const Post = ({ post, postedBy }) => {
+const Post = ({ post, postedBy, setPosts }) => {
   const [liked, setLiked] = useState(false);
   const [user, setUser] = useState(null);
 
