@@ -65,7 +65,7 @@ const Post = ({ post, postedBy }) => {
 			}
 			showToast("Success", "Post deleted successfully", "success");
 
-      setPost((prev) => prev.filter((p) => p._id !== post._id))
+      setPosts((prev) => prev.filter((p) => p._id !== post._id))
 
 		} catch (error) {
 			showToast("Error", error.message, "error");
