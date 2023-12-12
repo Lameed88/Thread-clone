@@ -18,14 +18,14 @@ import { useEffect, useState } from "react";
 import useShowToast from "../hooks/useShowToast";
 import { formatDistanceToNow } from "date-fns";
 import { DeleteIcon } from "@chakra-ui/icons";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 
 const Post = ({ post, postedBy}) => {
   const [liked, setLiked] = useState(false);
   const [user, setUser] = useState(null);
-
   const showToast = useShowToast();
+  const [posts, setPosts] = useRecoilState(postsAtom)
   const navigate = useNavigate();
   const currentUser = useRecoilValue(userAtom);
 
