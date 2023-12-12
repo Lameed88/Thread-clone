@@ -16,7 +16,14 @@ import Comments from "../components/Comments";
 const [user, setUser] = useState(null)
 
 useEffect(() => {
-  
+  const getUser = async () => {
+    try {
+      
+    } catch (error) {
+      
+    }
+  }
+  getUser
 }, [])
 
 
