@@ -1,62 +1,86 @@
 import {
   Avatar,
-  Flex,
-  Text,
-  Image,
   Box,
-  Divider,
   Button,
+  Center,
+  Divider,
+  Flex,
+  Image,
+  Spinner,
+  Text,
 } from "@chakra-ui/react";
-import Actions from "../components/Actions";
+import { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
-import { useState, useEffect } from "react";
-import React from "react";
+import Actions from "../components/Actions";
 import Comments from "../components/Comments";
-
-const [user, setUser] = useState(null)
-
-useEffect(() => {
-  const getUser = async () => {
-    try {
-      
-    } catch (error) {
-      
-    }
-  }
-  getUser
-}, [])
+import { useEffect } from "react";
+import useShowToast from "../hooks/useShowToast";
+import { useParams } from "react-router-dom";
+import useGetUserProfile from "../hooks/useGetUserProfile";
 
 
 const PostPage = () => {
-  const [liked, setLiked] = useState(false);
+  const { user, loading } = useGetUserProfile();
+const [post, setPost] = useState(null)
+const showToast = useShowToast()
+const {pid} = useParams()
+
+
+  useEffect(() => {
+    const getPost = async () =>{
+      try {
+        const res = await fetch(`/api/posts/${pid}`)
+        const data = await res.json()
+
+        if (data.error) {
+          showToast("Error", data.error, "error")
+          return
+        }
+        
+      } catch (error) {
+        showToast("Error", error.message,"error")
+      }
+    }
+  }, []);
+
+  if (!user && loading) {
+    return (
+      <Flex justifyContent={"center"}>
+        <Spinner size={"xl"} />
+      </Flex>
+    );
+  }
+
   return (
     <>
-      <Flex
-        w={"full"}
-        gap={3}
-        justifyContent={"space-between"}
-        alignItems={"center"}
-      >
-        <Flex alignItems={"center"}>
-          <Avatar src="/aliumusa.jpeg" size={"md"} mr={2} />
-          <Text fontSize={"sm"}>Aliu musa</Text>
-          <Image src="verified.png" h={4} w={4} ml={2} />
-        </Flex>
+      <Flex>
+        <Flex
+          w={"full"}
+          gap={3}
+          alignItems={"center"}
+          justifyContent={"space-between"}
+        >
+          <Flex alignItems={"center"}>
+            <Avatar src={user.profilePic} name="Aliu Musa" size={"md"} mr={2} />
+            <Text fontSize={"sm"}>{user.user}</Text>
+            <Image src="/verified.png" h={4} w={4} ml={2} />
+          </Flex>
 
-        <Flex alignItems={"center"} gap={4}>
-          <Text
-            fontSize={{ base: "xs", md: "sm" }}
-            textAlign={"right"}
-            w={36}
-            color={"gray.light"}
-          >
-            2days
-          </Text>
-          <BsThreeDots />
+          <Flex gap={4} alignItems={"center"}>
+            <Text
+              fontSize={{ base: "xs", md: "sm" }}
+              textAlign={"right"}
+              width={36}
+              color={"gray.light"}
+            >
+              2day
+            </Text>
+            <BsThreeDots />
+          </Flex>
         </Flex>
       </Flex>
-      <Text my={3}>Hello gbogbo aye!!!</Text>
 
+      <Text my={3}>Hello My People !!!</Text>
       <Box
         overflow={"hidden"}
         borderRadius={6}
@@ -65,34 +89,36 @@ const PostPage = () => {
       >
         <Image src="/post1.png" w={"full"} />
       </Box>
+
       <Flex>
-        <Actions liked={liked} setLiked={setLiked} />
+        {/* <Actions liked={liked} setLiked={setLiked} /> */}
       </Flex>
+
       <Flex gap={2} color={"gray.light"} fontSize={"sm"} alignItems={"center"}>
-        <Text>300 Replies</Text>
-        <Box w={0.5} h={0.5} borderRadius={"full"} bg={"green"}></Box>
-        <Text>{21 + (liked ? 1 : 0)} likes</Text>
+        <Text>250 Replies</Text>
+        <Box w={0.5} h={0.5} borderRadius={"full"} bg={"gray.light"}></Box>
+        <Text>20 + </Text>
       </Flex>
+
       <Divider my={4} />
 
       <Flex justifyContent={"space-between"}>
-        <Flex alignItems={"center"} gap={2}>
-          <Text fontSize={"2xl"}>👌</Text>
-          <Text>Get the app to like, reply and post.</Text>
+        <Flex alignItems={"Center"} gap={2}>
+          <Text fontSize={"2xl"}>👋</Text>
+          <Text color={"gray.light"}>Get the app to Like, reply and Post</Text>
         </Flex>
         <Button>Get</Button>
       </Flex>
-    
+
       <Divider my={4} />
 
       {/* <Comments
-        likes={12}
-        username={"Ryan Florence"}
-        userAvatar={"https://bit.ly/ryan-florence"}
-        createdAt={"3 mins ago"}
-        Comments={"welcome back online bro"}
+        Comments={"Bbay Boy"}
+        createdAt={"3 min Ago"}
+        likes={"20"}
+        username={"easy"}
+        userAvatar={"https://bit.ly/dan-abramov"}
       /> */}
-     
     </>
   );
 };
