@@ -9,9 +9,16 @@ import {
 } from "@chakra-ui/react";
 import Actions from "../components/Actions";
 import { BsThreeDots } from "react-icons/bs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import Comments from "../components/Comments";
+
+const [user, setUser] = useState(null)
+
+useEffect(() => {
+  
+}, [])
+
 
 const PostPage = () => {
   const [liked, setLiked] = useState(false);
