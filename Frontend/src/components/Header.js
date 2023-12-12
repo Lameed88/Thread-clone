@@ -1,10 +1,11 @@
-import { Flex, Image, useColorMode } from "@chakra-ui/react";
+import { Button, Flex, Image, useColorMode } from "@chakra-ui/react";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 import { AiFillHome } from "react-icons/ai"
 import {Link, Link as RouterLink} from "react-router-dom"
 import { useState } from "react";
 import {RxAvatar} from "react-icons/rx"
+import FiLogOut from "react-icons/fi"
 
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -41,7 +42,7 @@ const Header = () => {
         </Link>
 
         <Button  onClick={handleLogout}>
-        <AiOutlineLogout size={20}/>
+        <FiLogOut size={20}/>
     </Button>
 
         </Flex>
