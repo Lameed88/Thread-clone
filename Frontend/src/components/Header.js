@@ -41,7 +41,7 @@ const Header = () => {
           <RxAvatar size={24}/>
         </Link>
 
-        <Button  onClick={handleLogout}>
+        <Button  alignItems={"center"}>
         <FiLogOut size={20}/>
     </Button>
 
