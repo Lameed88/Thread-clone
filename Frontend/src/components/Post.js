@@ -11,7 +11,7 @@ import {
   MenuList,
   Text,
 } from "@chakra-ui/react";
-import { BsThreeDots } from "react-icons/bs";
+
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import Actions from "./Actions";
 import { useEffect, useState } from "react";
@@ -21,7 +21,7 @@ import { DeleteIcon } from "@chakra-ui/icons";
 import { useRecoilValue } from "recoil";
 import userAtom from "../atoms/userAtom";
 
-const Post = ({ post, postedBy, setPosts }) => {
+const Post = ({ post, postedBy }) => {
   const [liked, setLiked] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -164,7 +164,7 @@ const Post = ({ post, postedBy, setPosts }) => {
             </Box>
           )}
           <Flex gap={3} my={1}>
-            <Actions post={post} setPosts={setPosts}/>
+            <Actions post={post} />
           </Flex>
         </Flex>
       </Flex>
