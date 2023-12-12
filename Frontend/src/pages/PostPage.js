@@ -107,7 +107,7 @@ const PostPage = () => {
             textAlign={"right"}
             color={"gray.light"}
           >
-            {formatDistanceToNow(new Date(post.createdAt))} ago
+            {formatDistanceToNow(new Date(currentPost.createdAt))} ago
           </Text>
           {currentUser?._id === user._id && (
             <DeleteIcon
@@ -118,9 +118,9 @@ const PostPage = () => {
           )}
         </Flex>
       </Flex>
-      <Text my={3}>{post.text}</Text>
+      <Text my={3}>{currentPost.text}</Text>
 
-      {post.img && (
+      {currentPost.img && (
         <Box
           borderRadius={6}
           overflow={"hidden"}
