@@ -92,10 +92,12 @@ const Actions = ({ post: post_ }) => {
 		if(p._id === post._id) {
 			return{...p, replies: [...p.replies, data]}
 		}
-		return
-		})
+		return p
 
-			setPost({ ...post, replies: [...post.replies, data] });
+		})
+		setposts(updatedPosts)
+
+			
 			showToast("Success", "Reply posted successfully", "success");
 			onClose();
 			setReply("");
