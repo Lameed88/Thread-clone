@@ -170,7 +170,7 @@ export default function UpdateProfilePage() {
             }}
             onClick={() => navigate(-1)}
             >
-                   
+                    
             Cancel
           </Button>
           <Button
